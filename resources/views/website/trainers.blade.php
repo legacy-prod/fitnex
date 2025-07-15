@@ -50,9 +50,9 @@
                     <a href="{{ route('trainer.detail', $trainer->id) }}" class="no-underline">
                         <div class="relative overflow-hidden rounded-lg h-[450px] w-[300px] flex-shrink-0"> 
                             @if($trainer->image)
-                                <img src="{{ asset('/admin/assets/images/trainers/'.$trainer->image ) }}" class="w-full h-full object-cover object-top" alt="{{ $trainer->name }}">
+                                <img src="{{ asset('/admin/assets/images/Trainers/'.$trainer->image ) }}" class="w-full h-full object-cover object-top" alt="{{ $trainer->name }}">
                             @else
-                                <img src="{{ asset('/admin/assets/images/trainers/no-photo1.jpg') }}" class="w-full h-full object-cover object-top" alt="{{ $trainer->name }}">
+                                <img src="{{ asset('/admin/assets/images/Trainers/no-photo1.jpg') }}" class="w-full h-full object-cover object-top" alt="{{ $trainer->name }}">
                             @endif
                             <div class="absolute top-5 left-5 flex flex-col space-y-2 social-media-links">
                                 <a href="{{ $trainer->twitter }}" class="bg-white text-black w-8 h-8 rounded-md flex justify-center items-center no-underline transition-all duration-300 expoert-traning-card hover:text-white hover:scale-110"><i class="fab fa-x-twitter"></i></a>
