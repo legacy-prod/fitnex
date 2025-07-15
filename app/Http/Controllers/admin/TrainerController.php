@@ -52,10 +52,8 @@ class TrainerController extends Controller
      */
     public function create()
     {
-        $page_title = 'Add Trainer';
-        /* $cities = City::where('status', 1)->get();
-        $states = State::where('status', 1)->get(); */
-        return view('admin.trainer.create', compact('page_title'/* , 'cities', 'states' */));
+        $page_title = 'Add Trainer'; 
+        return view('admin.trainer.create', compact('page_title'));
     }
 
     /**
@@ -120,10 +118,8 @@ class TrainerController extends Controller
     public function edit($id)
     {
         $page_title='Edit Trainer';
-        $trainer= Trainer::where('id' , $id)->first();
-        /* $cities = City::where('status', 1)->get();
-        $states = State::where('city_id', $trainer->city_id)->get(); */
-        return view('admin.trainer.edit' , compact('page_title' , 'trainer' /* , 'cities' , 'states' */));
+        $trainer= Trainer::where('id' , $id)->first(); 
+        return view('admin.trainer.edit' , compact('page_title' , 'trainer'));
     }
 
     /**
