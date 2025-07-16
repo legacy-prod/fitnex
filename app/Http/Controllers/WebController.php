@@ -14,6 +14,7 @@ use App\Models\AboutUs;
 use App\Models\City;
 use App\Models\MemberDirectory;
 use App\Models\State;
+use App\Models\PageSetting;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use Illuminate\Support\Facades\Log;
@@ -29,7 +30,7 @@ use App\Models\PaymentDetail;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Team;
 use App\Models\Event;
-use App\Models\Trainer;
+use App\Models\Trainer; 
 class WebController extends Controller
 {
     public function index()
@@ -178,14 +179,21 @@ class WebController extends Controller
 
 
     public function AboutUs() 
-    {
+    { 
         $abouts = AboutUs::where('status', 1)->get();
-        $banner = Banner::where('id', 3)->where('status', 1)->first();
+        $banner = Banner::where('slug', request()->route()->getName())->where('status', 1)->first();
         $testimonials = Testimonial::where('status', '=', 1)->get();
         $teams = Team::where('status', 1)->get();
         $categories = Category::where('status', 1)->get();
         $page_title = 'About Us | FITNEX';
-        return view('website.about-us', compact('page_title', 'abouts', 'banner', 'testimonials', 'teams', 'categories'));
+
+        $page_settings = PageSetting::where('parent_slug', 'about-us')->get(['key', 'value']);
+        $page_data = [];
+        foreach ($page_settings as $key => $page_setting) {
+            $page_data[$page_setting->key] = $page_setting->value;
+        }
+
+        return view('website.about-us', compact('page_title', 'abouts', 'banner', 'testimonials', 'teams', 'categories', 'page_data'));
     }
     
     public function Trainers() 

@@ -43,7 +43,8 @@
 								<tr>
 									<th>SL</th>
 									<th>Image</th>
-									<th>Name</th>
+									<th>Banner Title</th>
+									<th>Page</th>
 									<!-- <th>Short Description</th> -->
 									<th>Status</th>
 									<th width="140">Action</th>
@@ -61,6 +62,7 @@
 										@endif
 									</td>
 									<td>{{ $banner->name }}</td>
+									<td>{{ $banner->slug }}</td>
 									<!-- <td>{!! \Illuminate\Support\Str::limit( $banner->short_description , 20) !!}</td> -->
 									<td>
 										@if($banner->status)

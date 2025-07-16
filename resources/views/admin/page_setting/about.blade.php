@@ -18,7 +18,7 @@
 
 				<input type="hidden" name="parent_slug" id="" value="{{ $model->slug }}">
 				<div class="box box-info">
-					<div class="box-body">
+					<div class="box-body"> 
 						<h3 class="sec_title text-center">WHO WE ARE?</h3>
 
 						
@@ -208,7 +208,6 @@
 				$('#why_banner_preview').attr('src', URL.createObjectURL(file));
 			}
 		});
-
 		
 	});
 </script>

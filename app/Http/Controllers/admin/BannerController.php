@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Str;
 
 class BannerController extends Controller
 {
@@ -52,7 +53,17 @@ class BannerController extends Controller
     public function create()
     {
         $page_title= "Add Banner";
-        return view('admin.banner.create' , compact('page_title'));
+        $pages = [
+            'about-us' => 'About Us',
+            'trainers' => 'Trainers',
+            'trainer-detail' => 'Trainer Detail',
+            'blog' => 'Blog',
+            'contact-us' => 'Contact Us', 
+            'term-of-service' => 'Terms Of Service', 
+            'privacy-policy' => 'Privacy Policy', 
+            'refund-policy' => 'Refund Policy',
+        ];
+        return view('admin.banner.create' , compact('page_title', 'pages'));
     }
 
     /**
@@ -77,7 +88,7 @@ class BannerController extends Controller
             $banner->image = $photo;
         }
         $banner->name = $request->name;
-        /* $banner->slug = \Str::slug($request->name); */
+        $banner->slug = $request->slug;
         $banner->short_description = $request->short_description;
         $banner->description = $request->description;
         $banner->save();
@@ -106,7 +117,17 @@ class BannerController extends Controller
     {
         $page_title= 'Edit Banner';
         $banners=Banner::where('id' , $id)->first();
-        return view('admin.banner.edit' , compact('banners' , 'page_title'));
+        $pages = [
+            'about-us' => 'About Us',
+            'trainers' => 'Trainers',
+            'trainer-detail' => 'Trainer Detail',
+            'blog' => 'Blog',
+            'contact-us' => 'Contact Us',
+            'term-of-service' => 'Terms Of Service', 
+            'privacy-policy' => 'Privacy Policy', 
+            'refund-policy' => 'Refund Policy',
+        ];
+        return view('admin.banner.edit' , compact('banners' , 'page_title', 'pages'));
 
     }
 
@@ -130,7 +151,7 @@ class BannerController extends Controller
             $updates->image = $photo;
         }
         $updates->name = $request->name;
-        /* $updates->slug = \Str::slug($request->name); */
+        $updates->slug = $request->slug;
         $updates->short_description = $request->short_description;
         $updates->description = $request->description;
         $updates->status = $request->status;

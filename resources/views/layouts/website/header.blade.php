@@ -19,7 +19,7 @@
                             <i class="fa-solid fa-xmark menu-toggle"></i>
                         </div>
                         <li><a href="{{ route('index') }}" class="{{ request()->routeIs('index') ? 'active' : '' }}">Home</a></li>
-                        <li><a href="#" class="{{ request()->routeIs('about-us') ? 'active' : '' }}">About us</a></li>
+                        <li><a href="{{ route('about-us') }}" class="{{ request()->routeIs('about-us') ? 'active' : '' }}">About us</a></li>
                         {{-- <li>
                             <select class="block w-full focus:outline-none">
                                 <option value="" selected>Services</option>
