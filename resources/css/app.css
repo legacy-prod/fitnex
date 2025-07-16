@@ -559,7 +559,7 @@ body {
 
 
 .listing-banner {
-    @apply flex items-center justify-center text-center py-[160px] relative z-[1] text-white;
+    @apply flex items-center justify-center text-center py-[200px] relative z-[1] text-white;
 }
 .trainer-card {
     max-height: 450px;
@@ -575,4 +575,39 @@ body {
 
 .listing-banner::before {
     background-color: #0079d447;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/*font-family: 'Poppins', sans-serif;*/
+/*font-family: 'Roboto Condensed', sans-serif;*/
+.primary-btn {
+  @apply bg-[#0079D4] text-white py-[10px] px-[30px] rounded-[24px] font-secondary;
+}
+
+.primary-navs a {
+  @apply relative;
+}
+
+.primary-navs a.active {
+  @apply text-[#0079D4];
+}
+
+.primary-navs a::before {
+  @apply content-[""] absolute bg-[#0079D4] h-[2px] w-[0%] left-0 -bottom-[5px] rounded-xl duration-300;
+}
+
+.primary-navs a:hover::before {
+  @apply w-[100%];
+}
+
+#mobile-menu {
+  transition: left 0.3s ease-in-out;
+}
+
+.menu-open {
+  left: 0 !important;
 }
