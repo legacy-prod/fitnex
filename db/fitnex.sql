@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2025 at 12:32 AM
+-- Generation Time: Jul 16, 2025 at 11:49 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -143,19 +143,7 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `name`, `slug`, `short_description`, `description`, `image`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'PRIVACY POLICY', 'privacy-policy', NULL, NULL, '22-08-03-213946.png', '1', '2024-12-19 21:54:01', '2022-08-03 16:38:17', '2024-12-19 16:54:01'),
-(2, 'TERMS AND CONDITIONS', 'terms-and-conditions', NULL, NULL, '22-08-03-215418.png', '1', '2024-12-19 21:54:09', '2022-08-03 16:47:42', '2024-12-19 16:54:09'),
-(3, 'ABOUT SCVBA', 'about-scvba', NULL, NULL, '25-04-14-164130.png', '1', '2025-07-02 18:47:24', '2022-08-03 17:10:29', '2025-07-02 13:47:24'),
-(6, 'Member Benefits', 'member-benefits', NULL, NULL, '25-04-14-193231.png', '1', '2025-07-02 18:46:24', '2022-08-03 18:25:57', '2025-07-02 13:46:24'),
-(7, 'SCVBA Events', 'scvba-events', NULL, NULL, '25-04-15-154417.png', '1', '2025-07-02 18:46:20', '2022-08-03 18:34:07', '2025-07-02 13:46:20'),
-(8, 'Contact Us', 'contact-us', NULL, NULL, '25-04-15-161257.png', '1', '2025-07-02 18:47:08', '2022-08-03 18:44:41', '2025-07-02 13:47:08'),
-(9, 'SCVBA Project Hub', 'scvba-project-hub', NULL, NULL, '25-02-07-200724.jpg', '1', '2025-07-02 18:46:15', '2022-08-03 19:11:08', '2025-07-02 13:46:15'),
-(10, 'SIGN UP', 'sign-up', NULL, NULL, '25-02-10-151802.jpg', '1', '2025-07-02 18:47:05', '2022-08-04 11:48:58', '2025-07-02 13:47:05'),
-(15, 'SCVBA Member', 'scvba-member', NULL, NULL, '25-04-14-215905.png', '1', '2025-07-02 18:46:28', '2022-08-23 16:48:22', '2025-07-02 13:46:28'),
-(16, 'Registration', 'registration', NULL, NULL, '25-04-15-001254.png', '1', '2025-07-02 18:47:02', '2024-12-23 15:36:32', '2025-07-02 13:47:02'),
-(17, 'Welcome to FITNEX', 'login', NULL, NULL, '25-02-10-152007.jpg', '1', '2025-07-02 18:46:54', '2025-02-10 10:20:07', '2025-07-02 13:46:54'),
-(18, 'Project  Details', NULL, NULL, NULL, '25-05-08-180304.jpg', '1', '2025-07-02 18:46:32', '2025-05-08 13:03:04', '2025-07-02 13:46:32'),
-(19, 'Careers', NULL, NULL, NULL, '25-06-11-211324.jpg', '1', '2025-07-02 18:46:36', '2025-06-11 16:13:24', '2025-07-02 13:46:36');
+(1, 'About Us', 'about-us', NULL, NULL, '25-07-16-165515.webp', '1', NULL, '2025-07-16 11:23:07', '2025-07-16 12:28:37');
 
 -- --------------------------------------------------------
 
@@ -1244,7 +1232,7 @@ INSERT INTO `page_settings` (`id`, `parent_slug`, `key`, `value`, `deleted_at`, 
 (114, 'header', 'header_call_us_now', NULL, NULL, '2022-07-29 17:27:09', '2025-07-02 13:18:40'),
 (115, 'header', 'header_email', NULL, NULL, '2022-07-29 17:27:09', '2024-12-12 14:44:56'),
 (116, 'footer', 'footer_address', '123 Main St, Anytown, USA', NULL, '2022-07-29 17:58:12', '2025-07-02 13:21:17'),
-(117, 'about-us', '_token', 'srziAfWlOey2fEAuqCKCgFrNBXLXa1YfIV12VfBU', NULL, '2022-08-15 11:45:13', '2025-07-15 10:54:20'),
+(117, 'about-us', '_token', 'A6AwLSJlTUAW39UPgWpLyHYt90T3g9iZrIry6wyl', NULL, '2022-08-15 11:45:13', '2025-07-16 11:03:04'),
 (118, 'about-us', 'parent_slug', 'about-us', NULL, '2022-08-15 11:45:13', '2022-08-15 11:45:13'),
 (119, 'about-us', 'about_heading', 'More About Us', NULL, '2022-08-15 11:45:13', '2022-08-23 13:50:45'),
 (120, 'about-us', 'about_head_description', '<p>We are an upcoming real estate company, and we want you to grow and partner with us. With a solid foundation in the word of God in everything we do, our main focus is to treat everyone with integrity, compassion, care and to always put others interest above our own. Regardless of race, color, national origin, religion, or sexual orientation, we are here to help and to put every customer in a home of there choice. &nbsp;&nbsp;&nbsp;</p>', NULL, '2022-08-15 11:45:13', '2022-08-23 13:01:51'),
@@ -1291,17 +1279,17 @@ INSERT INTO `page_settings` (`id`, `parent_slug`, `key`, `value`, `deleted_at`, 
 (161, 'home-about-us', 'home_about_image', '04072025220036.png', NULL, '2024-12-19 17:46:15', '2025-07-04 17:00:36'),
 (162, 'home-about-us', 'home_about_title', 'About Fitnex', NULL, '2024-12-19 18:12:59', '2025-07-04 16:56:25'),
 (163, 'about-us', 'about_page_heading', 'who we are?', NULL, '2024-12-20 11:32:21', '2025-04-16 15:00:02'),
-(164, 'about-us', 'about_description', NULL, NULL, '2024-12-20 11:32:21', '2025-07-15 10:54:20'),
-(165, 'about-us', 'about_description_two', NULL, NULL, '2024-12-20 11:32:21', '2025-07-15 10:54:20'),
+(164, 'about-us', 'about_description', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, '2024-12-20 11:32:21', '2025-07-16 11:05:57'),
+(165, 'about-us', 'about_description_two', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, '2024-12-20 11:32:21', '2025-07-16 11:05:57'),
 (166, 'about-us', 'why_heading', 'WHY JOIN US?', NULL, '2024-12-20 11:32:21', '2024-12-20 11:32:21'),
 (167, 'about-us', 'first_title', 'Fun and Fitness Combined', NULL, '2024-12-20 11:32:21', '2024-12-20 11:32:21'),
-(168, 'about-us', 'first_description', NULL, NULL, '2024-12-20 11:32:21', '2025-07-15 10:54:20'),
+(168, 'about-us', 'first_description', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, '2024-12-20 11:32:21', '2025-07-16 11:05:57'),
 (169, 'about-us', 'second_title', 'Customized Solutions', NULL, '2024-12-20 11:32:21', '2024-12-20 11:32:21'),
 (170, 'about-us', 'second_description', 'Integer quis urna rhoncus, ultricies nulla vitae, gravida neque. Duis tempus cursus libero, sit amet malesuada massa commodo id. Donec', NULL, '2024-12-20 11:32:21', '2024-12-20 11:32:21'),
 (171, 'about-us', 'third_title', 'Track Your Progress', NULL, '2024-12-20 11:32:21', '2024-12-20 11:32:21'),
 (172, 'about-us', 'third_description', 'Integer quis urna rhoncus, ultricies nulla vitae, gravida neque. Duis tempus cursus libero, sit amet malesuada massa commodo id. Donec', NULL, '2024-12-20 11:32:21', '2024-12-20 11:32:21'),
-(173, 'about-us', 'about_us_image', '22042025173742.png', NULL, '2024-12-20 11:32:21', '2025-04-22 12:37:42'),
-(174, 'about-us', 'why_image', '16042025211743.png', NULL, '2024-12-20 11:32:21', '2025-04-16 16:17:43'),
+(173, 'about-us', 'about_us_image', '16072025161924.jpg', NULL, '2024-12-20 11:32:21', '2025-07-16 11:19:24'),
+(174, 'about-us', 'why_image', '16072025183947.jpg', NULL, '2024-12-20 11:32:21', '2025-07-16 13:39:47'),
 (175, 'footer', 'footer_number', NULL, NULL, '2024-12-20 16:07:33', '2025-07-02 13:21:17'),
 (176, 'footer', 'footer_email', 'youremailhere@gmail.com', NULL, '2024-12-20 16:07:33', '2025-07-02 13:21:17'),
 (177, 'footer', 'footer_book', 'https://facebook.com', NULL, '2024-12-20 16:43:09', '2024-12-20 16:43:09'),
@@ -1314,15 +1302,15 @@ INSERT INTO `page_settings` (`id`, `parent_slug`, `key`, `value`, `deleted_at`, 
 (184, 'home-about-us', 'home_our_mission_heading', 'OUR Mission', NULL, '2025-04-15 13:06:07', '2025-04-15 13:06:07'),
 (185, 'home-about-us', 'home_our_mission_description', '<div>SCVBA ensures that local workers and businesses are always the first choice for providing construction, operational and related services for large infrastructure projects.</div>', NULL, '2025-04-15 13:06:07', '2025-04-15 13:30:59'),
 (186, 'home-about-us', 'home_our_mission_image', '15042025180607.png', NULL, '2025-04-15 13:06:07', '2025-04-15 13:06:07'),
-(187, 'about-us', 'about_description_three', NULL, NULL, '2025-04-16 15:01:47', '2025-07-15 10:54:20'),
-(188, 'about-us', 'about_us_image2', '16042025200304.png', NULL, '2025-04-16 15:03:04', '2025-04-16 15:03:04'),
+(187, 'about-us', 'about_description_three', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, '2025-04-16 15:01:47', '2025-07-16 11:05:57'),
+(188, 'about-us', 'about_us_image2', '16072025160557.jpg', NULL, '2025-04-16 15:03:04', '2025-07-16 11:05:57'),
 (189, 'about-us', 'our_mission_heading', 'Our Mission', NULL, '2025-04-16 15:58:17', '2025-04-16 15:58:17'),
-(190, 'about-us', 'our_mission_description', NULL, NULL, '2025-04-16 16:12:43', '2025-07-15 10:54:20'),
+(190, 'about-us', 'our_mission_description', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, '2025-04-16 16:12:43', '2025-07-16 11:05:57'),
 (191, 'about-us', 'first_our_mission', 'Fun and Fitness Combined', NULL, '2025-04-16 16:12:43', '2025-04-16 16:12:43'),
-(192, 'about-us', 'first_our_mission_description', NULL, NULL, '2025-04-16 16:23:10', '2025-07-15 10:54:20'),
-(193, 'about-us', 'second_our_mission_description', NULL, NULL, '2025-04-16 16:23:10', '2025-07-15 10:54:20'),
-(194, 'about-us', 'third_our_mission_description', NULL, NULL, '2025-04-16 16:23:10', '2025-07-15 10:54:20'),
-(195, 'about-us', 'fourth_our_mission_description', NULL, NULL, '2025-04-16 16:23:10', '2025-07-15 10:54:20'),
+(192, 'about-us', 'first_our_mission_description', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, '2025-04-16 16:23:10', '2025-07-16 11:05:57'),
+(193, 'about-us', 'second_our_mission_description', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, '2025-04-16 16:23:10', '2025-07-16 11:05:57'),
+(194, 'about-us', 'third_our_mission_description', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, '2025-04-16 16:23:10', '2025-07-16 11:05:57'),
+(195, 'about-us', 'fourth_our_mission_description', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, '2025-04-16 16:23:10', '2025-07-16 11:05:57'),
 (196, 'careers', '_token', 'vKa0X4KN5luA438ym1PYz9WniawJCkjcwR9XFQo9', NULL, '2025-06-12 12:59:07', '2025-06-12 12:59:07'),
 (197, 'careers', 'parent_slug', 'careers', NULL, '2025-06-12 12:59:07', '2025-06-12 12:59:07'),
 (198, 'careers', 'careers_heading', 'Join Our Team as</span> <br><span>Executive Director', NULL, '2025-06-12 12:59:07', '2025-06-12 12:59:07'),
@@ -1339,7 +1327,8 @@ INSERT INTO `page_settings` (`id`, `parent_slug`, `key`, `value`, `deleted_at`, 
 (209, 'careers', 'to_apply_heading', 'To Apply:', NULL, '2025-06-12 12:59:07', '2025-06-12 12:59:07'),
 (210, 'careers', 'to_apply_description', '<p>Please send resume and cover letter to <a href=\"mailto:careers@solunesco.com\">careers@solunesco.com</a>.</p>', NULL, '2025-06-12 12:59:07', '2025-06-12 13:41:39'),
 (211, 'careers', 'careers_status', '1', NULL, '2025-06-12 12:59:07', '2025-06-12 12:59:07'),
-(212, 'careers', 'form_about', NULL, NULL, '2025-06-12 12:59:08', '2025-06-12 12:59:08');
+(212, 'careers', 'form_about', NULL, NULL, '2025-06-12 12:59:08', '2025-06-12 12:59:08'),
+(213, 'about-us', 'about_banner', '16072025161924.webp', NULL, '2025-07-16 11:03:04', '2025-07-16 11:19:24');
 
 -- --------------------------------------------------------
 
@@ -3804,7 +3793,7 @@ ALTER TABLE `agents`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -3924,7 +3913,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `page_settings`
 --
 ALTER TABLE `page_settings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=213;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=214;
 
 --
 -- AUTO_INCREMENT for table `payments`

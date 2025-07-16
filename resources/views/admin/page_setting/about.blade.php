@@ -71,7 +71,7 @@
 									type="file"
 									class="form-control"
 									name="about_us_image2"
-									id="about_us_image"
+									id="about_us_image2"
 									accept="image/*">
 								<span style="color: red">{{ $errors->first('about_us_image2') }}</span>
 							</div>
