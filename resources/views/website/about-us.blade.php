@@ -181,7 +181,7 @@
         <div class="about-row">
             <div class="about-col" data-aos="fade-right">
                 @if (isset($page_data['why_image']))
-                    <div class="image-glow-container">
+                    <div class="image-glow-container our-mission-image">
                         <img src="{{ asset('/admin/assets/images/page/' . $page_data['why_image']) }}" alt="Our Mission">
                     </div>
                 @endif

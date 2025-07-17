@@ -142,13 +142,13 @@ Route::resource('contact', ContactController::class);
 //Client Contact
 Route::resource('client_contact', ClientContactController::class); 
 
+//ContactUs
+Route::resource('contactus', ContactUsController::class);
+
 
 Route::group(['middleware' => ['auth']], function () { 
     //Roles
     Route::resource('role', RoleController::class);
-    
-    //ContactUs
-    Route::resource('contactus', ContactUsController::class);
     
     //Stripe
     Route::get('stripe', [WebController::class, 'Stripe'])->name('stripe');

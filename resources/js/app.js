@@ -1,6 +1,16 @@
-import './bootstrap';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import $, { post } from 'jquery';
+window.$ = window.jQuery = $;
+import 'slick-carousel';
 
-$(document).ready(function () {
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+$(window).on('load', function () {
     $('.fitness-journey-slider').slick({
         dots: true,
         arrows: true,
@@ -12,7 +22,6 @@ $(document).ready(function () {
         centerMode: true,
         centerPadding: '400px',
         slidesToScroll: 1,
-        centerMode: true,
         responsive: [
             {
                 breakpoint: 1024,
