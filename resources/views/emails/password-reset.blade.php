@@ -80,7 +80,7 @@
 <body>
     <div class="email-container">
         <div class="email-header">
-            <img src="https://img.icons8.com/clouds/100/000000/lock-2.png" alt="SCVBA Logo">
+            <img src="https://img.icons8.com/clouds/100/000000/lock-2.png" alt="FITNEX Logo">
             <h1>Reset Your Password</h1>
         </div>
         <div class="email-body">
@@ -94,8 +94,8 @@
             <p style="margin-top:32px; color:#888;">If you did not request a password reset, no further action is required.</p>
         </div>
         <div class="email-footer">
-            &copy; {{ date('Y') }} SCVBA. All rights reserved.<br>
-            <span style="font-size:0.9em;">South Central Virginia Business Alliance</span>
+            &copy; {{ date('Y') }} FITNEX. All rights reserved.<br>
+            <span style="font-size:0.9em;">FITNEX</span>
         </div>
     </div>
 </body>

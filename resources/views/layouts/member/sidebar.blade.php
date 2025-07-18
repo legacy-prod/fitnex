@@ -7,13 +7,13 @@
                 </a>
             </li>
             <li class="treeview mt-2 {{ (request()->is('services') || request()->is('services/create') || request()->is('services/*/edit') || request()->is('member_directory') || request()->is('member_directory/create') || request()->is('member_directory/*/edit')) ? 'active' : '' }}" style="height: auto;">
-                <a href="#" class="{{ (request()->is('services') || request()->is('services/create') || request()->is('services/*/edit') || request()->is('member_directory') || request()->is('member_directory/create') || request()->is('member_directory/*/edit')) ? 'active' : '' }}">
+                {{-- <a href="#" class="{{ (request()->is('services') || request()->is('services/create') || request()->is('services/*/edit') || request()->is('member_directory') || request()->is('member_directory/create') || request()->is('member_directory/*/edit')) ? 'active' : '' }}">
                     <i class="fa fa-files-o"></i>
                     <span>Member Directory</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
-                </a>
+                </a> --}}
 
                 <ul class="treeview-menu" style="display: {{ (request()->is('member_directory') || request()->is('member_directory/create') || request()->is('member_directory/*/edit') || request()->is('services') || request()->is('services/create') || request()->is('services/*/edit')) ? 'block' : 'none' }};">
                 
@@ -25,13 +25,13 @@
                     </li>
                     @endcan
                    
-                    @can('member_directory-list')
+                    {{-- @can('member_directory-list')
                     <li class="treeview mt-2">
                         <a href="{{ route('member_directory.index') }}" class="{{ request()->is('member_directory') || request()->is('member_directory/create') || request()->is('member_directory/*/edit') ? 'active' : '' }}">
                             <i class="fa fa-sitemap"></i> <span>Add Member</span>
                         </a>
                     </li>
-                    @endcan
+                    @endcan --}}
                 </ul>
             </li>
            {{--  <li class="treeview {{ ( request()->is('jobpost') || request()->is('jobpost/create') || request()->is('jobpost/*/edit')) ? 'active' : '' }}" style="height: auto;">

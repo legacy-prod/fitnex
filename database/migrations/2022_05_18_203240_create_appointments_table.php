@@ -15,18 +15,16 @@ class CreateAppointmentsTable extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('customer_id');
-            $table->string('car_type_slug')->comment('tesla');
-            $table->string('product_slug');
-            $table->text('address');
-            $table->string('city');
-            $table->string('state');
-            $table->string('pickup_date');
-            $table->string('pickup_time');
-            $table->string('return_date');
-            $table->string('return_time');
-            $table->text('description');
-            $table->boolean('status')->default(1);
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('trainer_id')->constrained()->onDelete('cascade');
+            $table->date('appointment_date');
+            $table->time('appointment_time');
+            $table->string('time_zone');
+            $table->decimal('price', 8, 2);
+            $table->enum('status', ['pending', 'confirmed', 'cancelled', 'completed'])->default('pending');
+            $table->text('description')->nullable();
+            $table->string('payment_status')->default('pending');
+            $table->string('stripe_session_id')->nullable();
             $table->timestamps();
         });
     }

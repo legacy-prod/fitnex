@@ -24,11 +24,11 @@
             @if(isset($reason) && $project->status === 'rejected')
                 <p><strong>Reason for rejection:</strong><br>{{ $reason }}</p>
             @endif
-            <p>Thank you for using SCVBA.</p>
+            <p>Thank you for using FITNEX.</p>
         </div>
         <div class="footer">
-            &copy; {{ date('Y') }} SCVBA. All rights reserved.<br>
-            <span>South Central Virginia Business Alliance</span>
+            &copy; {{ date('Y') }} FITNEX. All rights reserved.<br>
+            <span>FITNEX</span>
         </div>
     </div>
 </body>

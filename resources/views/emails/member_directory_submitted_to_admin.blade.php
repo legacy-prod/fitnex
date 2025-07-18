@@ -96,7 +96,7 @@
 <body>
     <div class="email-container">
         <div class="email-header">
-            <img src="https://img.icons8.com/clouds/100/000000/handshake.png" alt="SCVBA Logo">
+            <img src="https://img.icons8.com/clouds/100/000000/handshake.png" alt="FITNEX Logo">
             <h1>New Member Directory Submitted</h1>
         </div>
         <div class="email-body">
@@ -114,8 +114,8 @@
             </p>
         </div>
         <div class="email-footer">
-            &copy; {{ date('Y') }} SCVBA. All rights reserved.
-            <span>South Central Virginia Business Alliance</span>
+            &copy; {{ date('Y') }} FITNEX. All rights reserved.
+            <span>FITNEX</span>
         </div>
     </div>
 </body>

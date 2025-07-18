@@ -2,214 +2,282 @@
 @section('title', $page_title)
 @section('content')
 <style>
-    /* Modern, unified form style */
-    .form-label {
-        font-weight: 500;
-        color: #1a355e;
-        font-size: 1rem;
-        font-family: 'Poppins', 'Roboto', Arial, sans-serif;
+    :root {
+        --primary-color: #007bff;
+        --primary-color-dark: #0056b3;
+        --secondary-color: #6c757d;
+        --background-color: #c5c5c5;
+        --card-background: #ffffff;
+        --text-color: #333;
+        --input-border-color: #ced4da;
+        --input-focus-color: #80bdff;
+        --input-bg-color: #f8f9fa;
+        --error-color: #dc3545;
     }
-    .form-control input-field {
-        font-family: 'Poppins', 'Roboto', Arial, sans-serif;
-        color: #212529;
-        background-color: #fff;
-        border: 1.5px solid #ced4da;
-        border-radius: 0.5rem;
-        padding: 0.5rem 1.6rem;
-        transition: border-color 0.2s, box-shadow 0.2s;
-        font-size: 1.6rem !important;
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
-    .form-control input-field:focus {
-        border-color: #1a355e;
-        box-shadow: 0 0 0 0.1rem rgba(26,53,94,0.08);
-        background-color: #fff;
-        color: #212529;
+    .signup-section {
+        padding: 5rem 1rem;
+        background-color: var(--background-color);
     }
-    .form-control input-field::placeholder {
-        color: #6c757d;
-        opacity: 1;
+    .signup-container {
+        max-width: 1000px;
+        margin: auto;
+        background-color: var(--card-background);
+        border-radius: 1rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        padding: 2rem 3rem;
+        border-top: 5px solid var(--primary-color);
     }
-    .btn-warning {
-        background: #ffc107;
-        color: #1a355e;
-        border: none;
-        border-radius: 2rem;
-        font-size: 1.1rem;
+    .form-title {
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        text-align: center;
+        font-size: 2.2rem;
+    }
+    .form-subtitle {
+        text-align: center;
+        color: var(--secondary-color);
+        margin-bottom: 2.5rem;
+    }
+    .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -10px;
+        margin-left: -10px;
+    }
+    .form-col {
+        position: relative;
+        width: 100%;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .form-col-half {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    @media (max-width: 767px) {
+        .form-col-half {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+    .form-field-group {
+        margin-bottom: 1.5rem;
+    }
+    .field-label {
+        display: block;
         font-weight: 600;
-        letter-spacing: 1px;
-        transition: background 0.2s, color 0.2s;
-    }
-    .btn-warning:hover, .btn-warning:focus {
-        background: #1a355e;
-        color: #fff;
-    }
-    #card-element {
-        background: #fff;
-        border: 1px solid #ced4da;
-        border-radius: .375rem;
-        padding: 10px 12px;
+        color: var(--secondary-color);
+        margin-bottom: .5rem;
     }
     .input-field {
-        border: 1px solid #ffc107;
-        padding: var(--text-10) var(--text-30);
+        display: block;
+        width: 100%;
+        height: calc(1.5em + .75rem + 2px);
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--text-color);
+        background-color: var(--input-bg-color);
+        background-clip: padding-box;
+        border: 1px solid var(--input-border-color);
+        border-radius: .5rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        box-sizing: border-box;
     }
-    
-    .btn{
-        padding: var(--text-15) var(--text-30) !important;
-    font-size: var(--text-18) !important;
-
+    .input-field:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        background-color: #fff;
     }
-    h2.fs-40 {
-        font-size: 4rem !important;
+    .input-field.invalid-input {
+        border-color: var(--error-color);
     }
-
-    .paddings{
-        padding: 50px 0;
+    .error-message {
+        width: 100%;
+        margin-top: .25rem;
+        font-size: .875em;
+        color: var(--error-color);
     }
-
-    .signup-form {
-        background: linear-gradient(315deg, #4ab0f5, #004b8500);
-        box-shadow: 5px 5px 20px 0px rgb(0 0 0 / 21%) !important;
+    .checkbox-group {
+        text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
     }
-    @media (max-width: 767.98px) {
-        .card {
-            padding: 1.5rem !important;
-        }
-        .signup-form {
-            padding: 1rem 0;
-        }
-        .form-label, .form-control input-field {
-            font-size: 0.95rem;
-        }
+    .checkbox-input {
+        margin-right: .5rem;
+    }
+    .terms-link a {
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+    .terms-link a:hover {
+        text-decoration: underline;
+    }
+    .submit-button-container {
+        text-align: center;
+    }
+    .submit-button {
+        background-image: linear-gradient(to right, #007bff 0%, #0056b3 51%, #007bff 100%);
+        background-size: 200% auto;
+        color: white;
+        font-weight: 600;
+        padding: 0.8rem 2rem;
+        border: none;
+        border-radius: 50px;
+        transition: 0.5s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 1rem;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .submit-button:hover {
+        background-position: right center;
+    }
+    .loading-spinner {
+        border: 2px solid rgba(255,255,255,0.3);
+        border-top: 2px solid #fff;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        animation: spin 1s linear infinite;
+        margin-left: .5rem;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .login-link {
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+    .login-link a {
+        color: var(--primary-color);
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .login-link a:hover {
+        text-decoration: underline;
+    }
+    .error-alert {
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: .75rem 1.25rem;
+        margin-top: 1.5rem;
+        border: 1px solid #f5c6cb;
+        border-radius: .25rem;
     }
 </style>
 
 <!-- Banner Section -->
-
-@if(!empty($banner->image))
-<section class="inner-banner sign-up" style="background-image: url('{{asset('/admin/assets/images/banner') }}/{{ $banner->image }}');"> 
-@else
-<section class="inner-banner sign-up" style="background-image: url('{{asset('/admin/assets/images/images.png') }}');" style="width:100%">
-@endif
-<div class="banner-wrapper position-relative z-1">
+<section class="inner-banner listing-banner" style="background: url('{{ ($banner && $banner->image) ? asset('/admin/assets/images/banner/'.$banner->image) : asset('/admin/assets/images/images.png') }}') no-repeat center/cover">
     <div class="container">
-    <div class="row">
-        @include('website.include.social-links') 
-        <div class="col-lg-10 col-xl-9" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
-        <div class="card">
-            <div class="shape-1"></div>
-            @if(isset($banner))
-                <h1 class="hd-70">{{$banner->name}}</h1> 
-            @endif
-        </div>
-        </div>
+        <h1 class="relative mx-auto text-[50px] text-white font-bold leading-[1.1]" data-aos="flip-right" data-aos-easing="linear" data-aos-duration="1500">
+            @php
+                $title = ($banner && $banner->name) ? $banner->name : '';
+                $parts = explode(' ', $title, 2);
+            @endphp
+            <span class="italic uppercase font-black">
+                <span class="primary-theme-text">{{ $parts[0] }}</span>@if(isset($parts[1])) {{ $parts[1] }}@endif
+            </span>
+        </h1>
     </div>
-    </div>
-</div>
 </section>
 <!-- Signup Form Section -->
-<section class="paddings" id="signup-form">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-lg-7">
-                <div class="signup-form shadow-lg border-0 rounded-4 p-4 p-md-5" data-aos="flip-left" data-aos-easing="linear"
-                data-aos-duration="1500">
-                    <h2 class="mb-4 text-center heading text-uppercase fw-bold text-black fs-40"><span>SCVBA Registration</span></h2>   
-                    <form method="POST" action="{{ route('user.register.store') }}" id="subscription-form" enctype="multipart/form-data">
-                        @csrf
-                        <!-- Hidden Inputs -->
-                        {{-- @php
-                            // Define the mapping of package_for IDs to role names
-                            $roleMapping = [
-                                1 => 'Member',
-                                2 => 'EPC Developer',
-                                // Add more mappings if needed
-                            ];
-
-                            // Get the role name based on the package_for ID
-                            $roleName = $roleMapping[$package->package_for] ?? 'Unknown';
-                        @endphp --}}
-                        {{-- <input type="hidden" name="amount" value="{{ $package->price ?? 0 }}">
-                        <input type="hidden" name="package_id" value="{{ $package->id }}">
-                        <input type="hidden" name="package_description" value="{{ $package->description }}"> --}}
-                        {{-- <input type="hidden" name="role" value="{{ $roleName }}"> --}}
-                        <div class="row g-3">
-                            <!-- First Name -->
-                            <div class="col-12 col-md-6">
-                                <input type="text" class="form-control input-field fs-16 @error('name') is-invalid @enderror" name="name" id="input1" placeholder="First Name" value="{{ old('name') }}" required>
-                                @error('name') <div class="invalid-feedback">{{ $message }}</div> @enderror
-                            </div>
-                            <!-- Last Name -->
-                            <div class="col-12 col-md-6">
-                                <input type="text" class="form-control input-field fs-16 @error('last_name') is-invalid @enderror" name="last_name" id="input2" placeholder="Last Name" value="{{ old('last_name') }}" required>
-                                @error('last_name') <div class="invalid-feedback">{{ $message }}</div> @enderror
-                            </div>
-                            <!-- Phone -->
-                            <div class="col-12 col-md-6">
-                                <input type="text" class="form-control input-field fs-16 @error('phone') is-invalid @enderror" name="phone" id="input4" placeholder="Phone" value="{{ old('phone') }}" required>
-                                @error('phone') <div class="invalid-feedback">{{ $message }}</div> @enderror
-                            </div>
-                            <!-- Email -->
-                            <div class="col-12 col-md-6">
-                                <input type="email" class="form-control input-field fs-16 @error('email') is-invalid @enderror" name="email" id="input3" placeholder="Email" value="{{ old('email') }}" required>
-                                @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
-                            </div>
-                            <!-- Password -->
-                            <div class="col-12 col-md-6">
-                                <input type="password" class="form-control input-field fs-16 @error('password') is-invalid @enderror" name="password" id="input5" placeholder="Password" required>
-                                @error('password') <div class="invalid-feedback">{{ $message }}</div> @enderror
-                            </div>
-                            <!-- Confirm Password -->
-                            <div class="col-12 col-md-6">
-                                <input type="password" class="form-control input-field fs-16 @error('password_confirmation') is-invalid @enderror" name="password_confirmation" id="input6" placeholder="Confirm Password" required>
-                                @error('password_confirmation') <div class="invalid-feedback">{{ $message }}</div> @enderror
-                            </div>
-                            <div id="category_wrapper" class="col-12 col-md-12" style="display: none;">
-                                <select id="category_select" class="form-control input-field fs-16" name="category_id[]" multiple>
-                                    @foreach($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->title }}</option>
-                                    @endforeach
-                                </select>
-                                @error('category_id') <div class="invalid-feedback">{{ $message }}</div> @enderror
-                            </div>
-                            <!-- Payment Amount & Stripe -->
-                           {{--  @if($package->price != 0)
-                            <div class="col-12">
-                                <div class="alert alert-info text-center mb-2 rounded-3" style="background:#e3f6fc; color:#1a355e;">
-                                    <strong>Package:</strong> {{ $package->title }}<br>
-                                    <strong> Payment Amount:</strong> ${{ $package->price }} {{ $package->period }}
-                                </div>
-                                <div class="mb-3 p-3 border rounded bg-light" id="card-element"></div>
-                            </div>
-                            @endif --}}
-                            <!-- Terms and Conditions -->
-                            <div class="col-12 d-flex align-items-center flex-wrap">
-                                <input type="checkbox" class="form-check-input me-2" name="terms" id="Check1" required>
-                                <label class="form-check-label text-black" for="Check1">
-                                    I agree to the <a href="#" class="text-decoration-underline" style="color: #075eff">Terms & Conditions</a> and <a href="#" class="text-decoration-underline" style="color: #075eff">Privacy Policy</a>
-                                </label>
-                                @error('terms') <div class="invalid-feedback d-block ms-2">{{ $message }}</div> @enderror
-                            </div>
-                            <!-- Payment Methods Image -->
-                           {{--  @if($package->price != 0)
-                            <div class="col-12 text-end">
-                                <img src="{{ asset('/assets/website/images/stripe_secure.png') }}" alt="Pay-methods" class="img-fluid" style="width:140px;">
-                            </div>
-                            @endif --}}
-                            <!-- Submit Button -->
-                            <div class="col-12 mt-3">
-                                <button type="submit" class="btn btn-primary mx-auto d-flex justify-content-center text-capitalize w-100" id="register-btn" style="font-size:1.2rem; border-radius:3rem; letter-spacing:1px;">
-                                    Register
-                                    <span id="register-spinner" class="spinner-border spinner-border-sm d-none ms-2"></span>
-                                </button>
-                            </div>
-                        </div>
-                        @if($errors->has('error'))
-                            <div class="alert alert-danger mt-3">{{ $errors->first('error') }}</div>
-                        @endif
-                    </form>
+<section class="signup-section" id="signup-form">
+    <div class="signup-container" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1000">
+        <h2 class="form-title"><span>FITNEX Registration</span></h2>
+        <p class="form-subtitle">Join FITNEX to achieve your fitness goals!</p>
+        <form method="POST" action="{{ route('user.register.store') }}" id="subscription-form" enctype="multipart/form-data">
+            @csrf
+            <div class="form-row">
+                <!-- First Name -->
+                <input type="hidden" name="role" value="Member">
+                <div class="form-col form-col-half">
+                    <div class="form-field-group">
+                        <label for="name" class="field-label">First Name</label>
+                        <input type="text" class="input-field @error('name') invalid-input @enderror" name="name" id="name" placeholder="First Name" value="{{ old('name') }}" required>
+                        @error('name') <div class="error-message">{{ $message }}</div> @enderror
+                    </div>
+                </div>
+                <!-- Last Name -->
+                <div class="form-col form-col-half">
+                    <div class="form-field-group">
+                        <label for="last_name" class="field-label">Last Name</label>
+                        <input type="text" class="input-field @error('last_name') invalid-input @enderror" name="last_name" id="last_name" placeholder="Last Name" value="{{ old('last_name') }}" required>
+                        @error('last_name') <div class="error-message">{{ $message }}</div> @enderror
+                    </div>
                 </div>
             </div>
+            
+            <div class="form-row">
+                <!-- Email -->
+                <div class="form-col form-col-half">
+                    <div class="form-field-group">
+                        <label for="email" class="field-label">Email Address</label>
+                        <input type="email" class="input-field @error('email') invalid-input @enderror" name="email" id="email" placeholder="john.doe@example.com" value="{{ old('email') }}" required>
+                        @error('email') <div class="error-message">{{ $message }}</div> @enderror
+                    </div>
+                </div>
+                <!-- Phone -->
+                <div class="form-col form-col-half">
+                    <div class="form-field-group">
+                        <label for="phone" class="field-label">Phone Number</label>
+                        <input type="text" class="input-field @error('phone') invalid-input @enderror" name="phone" id="phone" placeholder="+1 (555) 123-4567" value="{{ old('phone') }}" required>
+                        @error('phone') <div class="error-message">{{ $message }}</div> @enderror
+                    </div>
+                </div>
+            </div>
+            <!-- Password -->
+            <div class="form-row">
+                <div class="form-col form-col-half">
+                    <div class="form-field-group">
+                        <label for="password" class="field-label">Password</label>
+                        <input type="password" class="input-field @error('password') invalid-input @enderror" name="password" id="password" placeholder="Enter a secure password" required>
+                        @error('password') <div class="error-message">{{ $message }}</div> @enderror
+                    </div>
+                </div>
+                <!-- Confirm Password -->
+                <div class="form-col form-col-half">
+                    <div class="form-field-group">
+                        <label for="password_confirmation" class="field-label">Confirm Password</label>
+                        <input type="password" class="input-field" name="password_confirmation" id="password_confirmation" placeholder="Confirm your password" required>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Terms and Conditions -->
+            <div class="checkbox-group">
+                <input type="checkbox" class="checkbox-input" name="terms" id="Check1" required>
+                <label class="checkbox-label terms-link" for="Check1">
+                    I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+                </label>
+                @error('terms') <div class="error-message">{{ $message }}</div> @enderror
+            </div>
+
+            <!-- Submit Button -->
+            <div class="submit-button-container">
+                <button type="submit" class="submit-button" id="register-btn">
+                    Register
+                    <span id="register-spinner" class="loading-spinner hidden"></span>
+                </button>
+            </div>
+            
+            @if($errors->has('error'))
+                <div class="error-alert">{{ $errors->first('error') }}</div>
+            @endif
+        </form>
+        <div class="login-link">
+            <p>Already have an account? <a href="{{ route('login') }}">Log In</a></p>
         </div>
     </div>
 </section>
@@ -223,93 +291,42 @@
         var stripe = Stripe("{{ config('services.stripe.key') }}");
         var elements = stripe.elements();
         var card = elements.create('card');
-        card.mount('#card-element');
+        // card.mount('#card-element'); // This needs a container if used
 
         var form = document.getElementById('subscription-form');
 
         form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Always prevent default when using Stripe
-
-            // Show spinner
+            // This part is for stripe, if you use it, make sure there is an element with id="card-element"
+            // event.preventDefault(); 
+            
             document.getElementById('register-btn').disabled = true;
-            document.getElementById('register-spinner').classList.remove('d-none');
+            document.getElementById('register-spinner').classList.remove('hidden');
 
-            stripe.createToken(card).then(function(result) {
-                if (result.error) {
-                    alert(result.error.message);
-                    document.getElementById('register-btn').disabled = false;
-                    document.getElementById('register-spinner').classList.add('d-none');
-                } else {
-                    stripeTokenHandler(result.token);
-                }
-            });
+            // The Stripe token creation would go here if needed
         });
-
-        function stripeTokenHandler(token) {
-            var hiddenInput = document.createElement('input');
-            hiddenInput.setAttribute('type', 'hidden');
-            hiddenInput.setAttribute('name', 'stripeToken');
-            hiddenInput.setAttribute('value', token.id);
-            form.appendChild(hiddenInput);
-            form.submit();
-        }
     });
 </script>
 {{-- @else --}}
 <script>
-    // If no payment needed, just show spinner on submit
-    document.getElementById('subscription-form').addEventListener('submit', function() {
-        document.getElementById('register-btn').disabled = true;
-        document.getElementById('register-spinner').classList.remove('d-none');
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('subscription-form').addEventListener('submit', function() {
+            document.getElementById('register-btn').disabled = true;
+            document.getElementById('register-spinner').classList.remove('hidden');
+        });
     });
 </script>
 {{-- @endif --}}
 
-<!-- Choices.js CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
-
-<!-- Choices.js JS -->
-<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
-
+<!-- Choices.js and other scripts are removed as they are not used -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    const categoryWrapper = document.getElementById('category_wrapper');
-    const categorySelect = document.getElementById('category_select');
-    const roleInputs = document.querySelectorAll('input[name="role"]');
-    let choicesInstance = null;
-
-    function toggleCategoryVisibility() {
-        const selectedRole = document.querySelector('input[name="role"]:checked');
-        const isContractor = selectedRole && selectedRole.value === 'Contractor';
-
-        if (isContractor) {
-            categoryWrapper.style.display = 'block';
-            categorySelect.setAttribute('required', 'required');
-
-            if (!choicesInstance) {
-                choicesInstance = new Choices(categorySelect, {
-                    removeItemButton: true,
-                    maxItemCount: 3,
-                    searchEnabled: true,
-                    placeholderValue: 'Membership Category (Limit 3) *',
-                });
-            }
-        } else {
-            categoryWrapper.style.display = 'none';
-            categorySelect.removeAttribute('required');
-
-            if (choicesInstance) {
-                choicesInstance.destroy();
-                choicesInstance = null;
-            }
+    const errorFields = document.querySelectorAll('.invalid-input');
+    errorFields.forEach(function(field) {
+        const errorMessage = field.nextElementSibling;
+        if (errorMessage && errorMessage.classList.contains('error-message')) {
+            errorMessage.style.display = 'block';
         }
-    }
-
-    roleInputs.forEach(input => {
-        input.addEventListener('change', toggleCategoryVisibility);
     });
-
-    toggleCategoryVisibility();
 });
 </script>
 

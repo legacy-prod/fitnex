@@ -9,8 +9,7 @@
         @endif
     </td>
     <td>{{ $banner->name }}</td>
-    <td>{{ $banner->slug }}</td>
-    <!-- <td>{!! \Illuminate\Support\Str::limit( $banner->short_description , 20) !!}</td> -->
+    <td>{{ $pages[$banner->slug] ?? $banner->slug }}</td>
     <td>
         @if($banner->status)
             <span class="label label-success">Active</span>

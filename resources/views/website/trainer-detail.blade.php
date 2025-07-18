@@ -2,16 +2,20 @@
 @section('title', $page_title)
 @section('content')
 
-<section class="inner-banner listing-banner" style="background: url(' {{ asset('/assets/website/images/trainer-banner.webp') }}') no-repeat center/cover;">
+<section class="inner-banner listing-banner" style="background: url('{{ ($banner && $banner->image) ? asset('/admin/assets/images/banner/'.$banner->image) : asset('/admin/assets/images/images.png') }}') no-repeat center/cover">
     <div class="container">
-        <h1 class="relative mx-auto text-[50px] text-white font-bold leading-[1.1] lg:max-w-[680px] xxl:max-w-[860px] k+pfr5Wx@I8MPO@UuY'2"
-            data-aos="flip-right"
-            data-aos-easing="linear"
-            data-aos-duration="1500">
-            Book Your Trainer Session at <span class="italic uppercase font-black"><span class="primary-theme">FIT</span>NEX</span>
+        <h1 class="relative mx-auto text-[50px] text-white font-bold leading-[1.1]" data-aos="flip-right" data-aos-easing="linear" data-aos-duration="1500">
+            @php
+                $title = ($banner && $banner->name) ? $banner->name : '';
+                $parts = explode(' ', $title, 2);
+            @endphp
+            <span class="italic uppercase font-black">
+                <span class="primary-theme-text">{{ $parts[0] }}</span>@if(isset($parts[1])) {{ $parts[1] }}@endif
+            </span>
         </h1>
     </div>
 </section>
+
 <section class="trainer-details-sec py-[50px] md:py-[100px] bg-black text-white">
     <div class="container">
         <div class="grid grid-cols-1 lg:grid-cols-5 gap-x-12 items-center">
@@ -68,7 +72,7 @@
                 </div>  
                 <div class="flex items-center justify-between">
                     <p class="text-3xl font-bold font-secondary"><span class="primary-theme">${{ $trainer->price }}</span> <span class="text-base font-normal">/ session</span></p>
-                    <a href="#" class="btn primary-btn">Book a Session</a>
+                    <a href="{{ route('appointments.create', ['trainer_id' => $trainer->id]) }}" class="btn primary-btn">Book a Session</a>
                 </div>
             </div>
         </div>

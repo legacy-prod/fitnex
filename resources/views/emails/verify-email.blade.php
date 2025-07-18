@@ -80,8 +80,8 @@
 <body>
     <div class="email-container">
         <div class="email-header">
-            <img src="https://img.icons8.com/clouds/100/000000/handshake.png" alt="SCVBA Logo">
-            <h1>Welcome to SCVBA!</h1>
+            <img src="https://img.icons8.com/clouds/100/000000/handshake.png" alt="FITNEX Logo">
+            <h1>Welcome to FITNEX!</h1>
         </div>
         <div class="email-body">
             <p style="font-size:1.2rem; font-weight:500;">{{ $details['title'] }}</p>
@@ -90,8 +90,8 @@
             <p style="margin-top:32px; color:#888;">If you did not create an account, no further action is required.</p>
         </div>
         <div class="email-footer">
-            &copy; {{ date('Y') }} SCVBA. All rights reserved.<br>
-            <span style="font-size:0.9em;">South Central Virginia Business Alliance</span>
+            &copy; {{ date('Y') }} FITNEX. All rights reserved.<br>
+            <span style="font-size:0.9em;">FITNEX</span>
         </div>
     </div>
 </body>

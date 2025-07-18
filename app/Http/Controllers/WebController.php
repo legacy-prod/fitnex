@@ -198,7 +198,7 @@ class WebController extends Controller
     
     public function Trainers() 
     { 
-        $banner = Banner::where('id', 3)->where('status', 1)->first();  
+        $banner = Banner::where('slug', request()->route()->getName())->where('status', 1)->first();
         $categories = Category::where('status', 1)->get();
         $trainers = Trainer::where('status', 1)->get();
         $page_title = 'Trainer Listing | FITNEX';
@@ -207,11 +207,12 @@ class WebController extends Controller
 
     public function TrainerDetail($id)
     {
+        $banner = Banner::where('slug', request()->route()->getName())->where('status', 1)->first();
         $trainer = Trainer::with(['city', 'state'])->where('id', $id)->where('status', 1)->firstOrFail();
         $page_title = $trainer->name . ' Details';
         $cities = City::where('status', 1)->get();
         $states = State::where('status', 1)->get();
-        return view('website.trainer-detail', compact('page_title', 'trainer', 'cities', 'states'));
+        return view('website.trainer-detail', compact('page_title', 'trainer', 'cities', 'states', 'banner'));
     }
 
     
@@ -272,7 +273,7 @@ class WebController extends Controller
     } */
     public function Registration()
     {
-        $banner = Banner::where('id', 16)->where('status', 1)->first();
+        $banner = Banner::where('slug', request()->route()->getName())->where('status', 1)->first();
         $page_title = 'Registration | FITNEX';
         $categories = Category::where('status', 1)->get();
        /*  $packages = Package::where('status', 1)->get(); */
@@ -367,8 +368,8 @@ class WebController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:password_confirmation',
             'phone' => 'required',
-            /* 'role' => 'required',
-            'package_id' => 'required',     
+            'role' => 'required',
+            /*'package_id' => 'required',     
             'package_description' => 'required', */
         ]);
 
@@ -400,8 +401,8 @@ class WebController extends Controller
                         'email' => $request->email,
                         'password' => Hash::make($request->password),
                         'phone' => $request->phone,
-                       /*  'role' => $request->role,
-                        'category_id' => isset($request->category_id) ? json_encode($request->category_id) : null, */
+                        'role' => $request->role,
+                       /*  'category_id' => isset($request->category_id) ? json_encode($request->category_id) : null, */
                         'expiry_date' => isset($request->expiry_date) ? date('Y-m-d', strtotime($request->expiry_date)) : null,
                         'status' => 0, // Set as inactive until email is verified
                         /* 'package_id' => $request->package_id, */
@@ -459,8 +460,8 @@ class WebController extends Controller
                     'email' => $request->email,
                     'password' => Hash::make($request->password),
                     'phone' => $request->phone,
-                   /*  'role' => $request->role,
-                    'category_id' => isset($request->category_id) ? json_encode($request->category_id) : null, */
+                    'role' => $request->role,
+                    /*  'category_id' => isset($request->category_id) ? json_encode($request->category_id) : null, */
                     'status' => 0, // Set as inactive until email is verified
                     /* 'package_id' => $request->package_id, */
                 ]);
@@ -494,8 +495,6 @@ class WebController extends Controller
     {
         $this->middleware(['auth', 'role:EPC Developer'])->only(['OurContractors', 'AgentDetail']);
     }
-
- 
 
     public function OurContractors()
     {

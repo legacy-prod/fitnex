@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2025 at 11:49 PM
+-- Generation Time: Jul 18, 2025 at 11:34 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -122,6 +122,28 @@ INSERT INTO `agents` (`id`, `created_by`, `slug`, `name`, `designation`, `facebo
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `appointments`
+--
+
+CREATE TABLE `appointments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `trainer_id` bigint(20) UNSIGNED NOT NULL,
+  `appointment_date` date NOT NULL,
+  `appointment_time` time NOT NULL,
+  `time_zone` varchar(255) NOT NULL,
+  `price` decimal(8,2) NOT NULL,
+  `status` enum('pending','confirmed','cancelled','completed') NOT NULL DEFAULT 'pending',
+  `description` text DEFAULT NULL,
+  `payment_status` varchar(255) NOT NULL DEFAULT 'pending',
+  `stripe_session_id` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `banners`
 --
 
@@ -143,7 +165,12 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `name`, `slug`, `short_description`, `description`, `image`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'About Us', 'about-us', NULL, NULL, '25-07-16-165515.webp', '1', NULL, '2025-07-16 11:23:07', '2025-07-16 12:28:37');
+(2, 'Book Your Fitness Session with FITNEX', 'trainers', NULL, NULL, '25-07-17-212042.webp', '1', NULL, '2025-07-17 16:20:42', '2025-07-17 16:20:42'),
+(3, 'Book Your Trainer Session at FITNEX', 'trainer.detail', NULL, NULL, '25-07-17-212317.webp', '1', NULL, '2025-07-17 16:23:17', '2025-07-17 16:23:17'),
+(4, 'About Us', 'about-us', NULL, NULL, '25-07-17-221414.webp', '1', NULL, '2025-07-17 17:14:14', '2025-07-17 17:15:18'),
+(5, 'Book Your Session', 'appointments.create', NULL, NULL, '25-07-17-221630.webp', '1', NULL, '2025-07-17 17:16:30', '2025-07-17 17:16:30'),
+(6, 'Resigtration', 'registration', NULL, NULL, '25-07-18-164614.webp', '1', NULL, '2025-07-18 11:46:14', '2025-07-18 11:46:14'),
+(7, 'Login Your Account', 'login', NULL, NULL, '25-07-18-174534.webp', '1', NULL, '2025-07-18 12:45:34', '2025-07-18 12:45:34');
 
 -- --------------------------------------------------------
 
@@ -346,8 +373,8 @@ CREATE TABLE `contact_us` (
 --
 
 INSERT INTO `contact_us` (`id`, `name`, `email`, `phone`, `address`, `message`, `service`, `status`, `created_at`, `updated_at`) VALUES
-(25, 'Meredith Sargent', 'vewysi@mailinator.com', '+1 (173) 927-4892', NULL, NULL, 'nutrition-coaching', '1', '2025-07-07 11:32:33', '2025-07-07 11:32:33'),
-(27, 'Irma England', 'myqypu@mailinator.com', '+1 (137) 469-4442', NULL, NULL, 'personal-training', '1', '2025-07-07 11:34:37', '2025-07-07 11:34:37');
+(33, 'Ina Kim', 'lilyp@mailinator.com', '+1 (562) 716-2537', NULL, NULL, 'body-building', '1', '2025-07-17 11:21:03', '2025-07-17 11:21:03'),
+(34, 'Rogan Zimmerman', 'gadu@mailinator.com', '+1 (759) 967-1155', NULL, NULL, 'personal-training', '1', '2025-07-17 15:27:31', '2025-07-17 15:27:31');
 
 -- --------------------------------------------------------
 
@@ -784,7 +811,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (57, '2022_05_18_192740_create_cities_table', 41),
 (58, '2022_05_18_193028_create_states_table', 42),
 (61, '2022_05_17_184901_create_bookings_table', 44),
-(62, '2022_05_18_203240_create_appointments_table', 45),
 (63, '2022_05_18_194530_create_pick_drop_locations_table', 46),
 (66, '2022_05_16_180452_create_payments_table', 47),
 (67, '2022_05_23_172759_create_payment_details_table', 48),
@@ -829,7 +855,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (164, '2022_02_03_082236_create_testimonials_table', 101),
 (165, '2022_05_09_174141_create_categories_table', 102),
 (167, '2022_05_18_190058_create_contact_us_table', 103),
-(169, '2025_07_01_182412_create_trainers_table', 104);
+(169, '2025_07_01_182412_create_trainers_table', 104),
+(170, '2022_05_18_203240_create_appointments_table', 105);
 
 -- --------------------------------------------------------
 
@@ -1036,6 +1063,7 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (5, 'App\\Models\\User', 98),
 (5, 'App\\Models\\User', 99),
 (5, 'App\\Models\\User', 100),
+(5, 'App\\Models\\User', 101),
 (5, 'App\\Models\\User', 102),
 (5, 'App\\Models\\User', 103),
 (5, 'App\\Models\\User', 104),
@@ -1183,14 +1211,14 @@ INSERT INTO `page_settings` (`id`, `parent_slug`, `key`, `value`, `deleted_at`, 
 (3, 'header', 'form_blog', NULL, NULL, '2022-06-03 18:31:33', '2022-06-03 18:31:33'),
 (4, 'header', 'header_favicon', '08072025190128.png', NULL, '2022-06-03 18:31:33', '2025-07-08 14:01:28'),
 (5, 'header', 'header_logo', '08072025173024.png', NULL, '2022-06-03 18:31:33', '2025-07-08 12:30:24'),
-(6, 'footer', '_token', 'Yt9OUkAXPP2earTEBGiuMUD5Pmv7Me7ZBDU0JTNi', NULL, '2022-06-03 18:41:30', '2025-07-08 12:20:23'),
+(6, 'footer', '_token', 't0rWNa2NLJbDNkVohaR4P2qcfBlBwjKXya82ug7V', NULL, '2022-06-03 18:41:30', '2025-07-18 13:09:06'),
 (7, 'footer', 'parent_slug', 'footer', NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
 (8, 'footer', 'footer_description', '<p>Fitnex was born from a passion for fitness and the frustration of navigating a fragmented wellness industry. We\'re building an inclusive ecosystem that connects clients with expert coaches, streamlining the journey to better health, performance, and confidence.</p>', NULL, '2022-06-03 18:41:30', '2025-07-02 13:21:17'),
 (9, 'footer', 'footer_whatsapp', 'https://web.whatsapp.com/', NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
 (10, 'footer', 'footer_facebook', 'https://facebook.com', NULL, '2022-06-03 18:41:30', '2024-12-20 16:39:04'),
 (11, 'footer', 'footer_youtube', 'https://www.youtube.com/', NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
 (12, 'footer', 'footer_instagram', 'https://www.instagram.com/', NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
-(13, 'footer', 'footer_copy_right_right_side', 'Site Design and Developed by <a href=\"https://americandigitalagency.us/\" target=\"_blank\" style=\"color: #ffff;\">American Digital Agency</a>', NULL, '2022-06-03 18:41:30', '2025-02-06 13:31:52'),
+(13, 'footer', 'footer_copy_right_right_side', NULL, NULL, '2022-06-03 18:41:30', '2025-07-18 13:09:06'),
 (14, 'footer', 'footer_copy_right_left_side', '@ Copyright 2025, All Rights Reserved', NULL, '2022-06-03 18:41:30', '2025-02-06 13:30:36'),
 (15, 'footer', 'form_blog', NULL, NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
 (16, 'footer', 'footer_image', '08072025173407.png', NULL, '2022-06-03 18:41:30', '2025-07-08 12:34:07'),
@@ -3498,7 +3526,11 @@ INSERT INTO `users` (`id`, `name`, `last_name`, `role`, `package_id`, `category_
 (93, 'Monty', 'Hightower', 'Member', 2, NULL, NULL, NULL, '(434) 210-1650', 'montyhightower@yahoo.com', NULL, '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$lnQDO.V2xeDpZfDkMAaUQOm1SWiCo3DGJK/oa/bpGczIb73xSD30u', '685c8cc4c0acf', NULL, NULL, '1', '2025-06-25 18:56:52', '2025-06-25 18:56:52'),
 (94, 'Zachary', 'McKinney', 'Member', 2, NULL, NULL, NULL, '(434) 321-8558', 'zack@zackmckinney.com', NULL, '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$sUM6uIEOfVTutJ6VnSdYjeOXSRPx7MdLuvJRbETmk6CdCYsVPT.JS', '685c8d405e485', NULL, NULL, '1', '2025-06-25 18:58:56', '2025-06-27 13:28:12'),
 (96, 'Bryar Pitts', 'James', NULL, NULL, NULL, NULL, NULL, '+1 (851) 681-8087', 'nejek@mailinator.com', NULL, '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$U8dOKPWWZW7BGWuddz0Ytu0vEMqhFY7BnmMaYL/WR6sgL/68JpkUy', '686bec121576d', NULL, NULL, '1', '2025-07-07 10:47:29', '2025-07-07 10:47:30'),
-(97, 'Lisandra Bonner', 'Abbott', NULL, NULL, NULL, NULL, NULL, '+1 (553) 871-7566', 'mesumatiq@mailinator.com', NULL, '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$FNgjmbgvly0Qlw806VEssesndbXQi4wnIZVIJ36eRo7AGVIpqszUK', '686bec62a7956', NULL, NULL, '0', '2025-07-07 10:48:50', '2025-07-07 10:48:50');
+(97, 'Lisandra Bonner', 'Abbott', NULL, NULL, NULL, NULL, NULL, '+1 (553) 871-7566', 'mesumatiq@mailinator.com', NULL, '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$FNgjmbgvly0Qlw806VEssesndbXQi4wnIZVIJ36eRo7AGVIpqszUK', '686bec62a7956', NULL, NULL, '0', '2025-07-07 10:48:50', '2025-07-07 10:48:50'),
+(98, 'Kimberley', 'Hubbard', NULL, NULL, NULL, NULL, NULL, '+1 (325) 581-2602', 'hopoxolej@mailinator.com', NULL, '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$bwobMpcXm.wgOJW4dQR4quCrj5KrPO.5FbdDSYOW.RRNQfIa/sbku', '687a7ef25cf45', NULL, NULL, '0', '2025-07-18 12:05:54', '2025-07-18 12:05:54'),
+(99, 'Talon', 'Hester', NULL, NULL, NULL, NULL, NULL, '+1 (638) 717-7718', 'resetuwa@mailinator.com', NULL, '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$Xc.0doywaNwblwKokOqCgeH600UtfS1npyMU6HVnu.ZZMHuRaDRB6', '687a7f5cce075', NULL, NULL, '0', '2025-07-18 12:07:40', '2025-07-18 12:07:40'),
+(100, 'Hollee', 'Garcia', 'Member', NULL, NULL, NULL, NULL, '+1 (196) 194-3199', 'lefi@mailinator.com', NULL, '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$Sa/0I1dN4X.ju4Zs1k66K.N8ZsAuhik03qXbyvrsSPdfUnGp0CDxy', '687a80735cf91', NULL, NULL, '1', '2025-07-18 12:12:19', '2025-07-18 12:12:19'),
+(102, 'Madonna', 'Andrews', 'Member', NULL, NULL, NULL, NULL, '+1 (792) 208-3458', 'asjadmmc67@gmail.com', NULL, '0', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '20250718180353.png', '2025-07-18 12:27:59', '$2y$10$qqDxeVCoTc4LKX9lx3nfguHd24BA0LJtZx2.vKnsiTTXTPsoVWliG', NULL, NULL, NULL, '1', '2025-07-18 12:27:44', '2025-07-18 13:03:53');
 
 --
 -- Indexes for dumped tables
@@ -3521,6 +3553,14 @@ ALTER TABLE `advertisements`
 --
 ALTER TABLE `agents`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `appointments`
+--
+ALTER TABLE `appointments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `appointments_user_id_foreign` (`user_id`),
+  ADD KEY `appointments_trainer_id_foreign` (`trainer_id`);
 
 --
 -- Indexes for table `banners`
@@ -3790,10 +3830,16 @@ ALTER TABLE `agents`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `appointments`
+--
+ALTER TABLE `appointments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -3823,7 +3869,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `coupons`
@@ -3889,7 +3935,7 @@ ALTER TABLE `member_directories`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
 
 --
 -- AUTO_INCREMENT for table `news_letters`
@@ -3991,11 +4037,18 @@ ALTER TABLE `trainers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `appointments`
+--
+ALTER TABLE `appointments`
+  ADD CONSTRAINT `appointments_trainer_id_foreign` FOREIGN KEY (`trainer_id`) REFERENCES `trainers` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `appointments_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `document_repositories`

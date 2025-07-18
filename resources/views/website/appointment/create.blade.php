@@ -1,157 +1,289 @@
 @extends('layouts.website.master')
+@section('title', $page_title)
+
+@push('css')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<style>
+    .booking-form {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .form-input {
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        color: white;
+        transition: all 0.3s ease;
+    }
+    
+    .form-input:focus {
+        border-color: #0079D4;
+        box-shadow: 0 0 0 3px rgba(0, 121, 212, 0.1);
+        outline: none;
+        background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .form-input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .time-slot-btn {
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        border-radius: 10px;
+        padding: 12px 16px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .time-slot-btn:hover {
+        background: rgba(0, 121, 212, 0.2);
+        border-color: #0079D4;
+        transform: translateY(-2px);
+    }
+    
+    .time-slot-btn.selected {
+        background: #0079D4 !important;
+        border-color: #0079D4 !important;
+        box-shadow: 0 4px 15px rgba(0, 121, 212, 0.4);
+    }
+    
+    .trainer-card {
+        background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .primary-btn {
+        background: linear-gradient(135deg, #0079D4 0%, #005a9f 100%);
+        border: none;
+        border-radius: 12px;
+        padding: 16px 32px;
+        font-weight: 700;
+        font-size: 18px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 121, 212, 0.3);
+    }
+    
+    .primary-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 121, 212, 0.4);
+    }
+    
+    .primary-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+    }
+    
+    .error-message {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        border-radius: 10px;
+        padding: 16px;
+        margin-bottom: 20px;
+        border-left: 4px solid #a71e2a;
+    }
+    
+    .success-message {
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        border-radius: 10px;
+        padding: 16px;
+        margin-bottom: 20px;
+        border-left: 4px solid #1e7e34;
+    }
+    
+    .form-label {
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #f8f9fa;
+        font-size: 16px;
+    }
+    
+    .loading-spinner {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: #fff;
+        animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+</style>
+@endpush
+
 @section('content')
-<link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />
-	<style>
-		.date-picker.row {width: 100%;margin: 0;}
-		.date-picker.row .ui.input{width: 100% !important;}
-		.form-group.col-md-6 input[type="time"] {padding: 17px 5px;}
-	</style>
-  <!-- BANNER SEC -->
-  <section class="banner-imnner-about">
+<section class="inner-banner listing-banner" style="background: url('{{ ($banner && $banner->image) ? asset('/admin/assets/images/banner/'.$banner->image) : asset('/admin/assets/images/images.png') }}') no-repeat center/cover">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="iner-baner-head">
-                    <h1>BOOK A APPOINTMENT</h1>
-                    <p class="extra-text">Home > Book A Appointment</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna alion.</p>
-                </div>    
+        <h1 class="relative mx-auto text-[50px] text-white font-bold leading-[1.1]" data-aos="flip-right" data-aos-easing="linear" data-aos-duration="1500">
+            @php
+                $title = ($banner && $banner->name) ? $banner->name : 'Book Session';
+                $parts = explode(' ', $title, 2);
+            @endphp
+            <span class="italic uppercase font-black">
+                <span class="primary-theme-text">{{ $parts[0] }}</span>@if(isset($parts[1])) {{ $parts[1] }}@endif
+            </span>
+        </h1>
+    </div>
+</section>
+
+<section class="py-16 bg-black text-white">
+    <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-3xl font-bold mb-4">Trainer Information</h2>
+                <div class="flex items-center space-x-4 mb-6">
+                    <img src="{{ asset('/admin/assets/images/Trainers/'.$trainer->image) }}" alt="{{ $trainer->name }}" class="w-24 h-24 rounded-full object-cover">
+                    <div>
+                        <h3 class="text-2xl font-bold">{{ $trainer->name }}</h3>
+                        <p class="text-lg text-[#0079D4]">{{ $trainer->designation }}</p>
+                        <p class="text-lg font-bold primary-theme">${{ $trainer->price }} / session</p>
+                    </div>
+                </div>
+                <div class="prose prose-invert max-w-none">
+                    {!! $trainer->description !!}
+                </div>
+            </div>
+            <div>
+                <h2 class="text-3xl font-bold mb-4">Book Your Session</h2>
+                @if(session('error'))
+                    <div class="bg-red-500 text-white p-4 rounded mb-4">
+                        {{ session('error') }}
+                    </div>
+                @endif
+                <form action="{{ route('appointments.store') }}" id="regform" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+                    @csrf
+                    <input type="hidden" name="trainer_id" value="{{ $trainer->id }}">
+                    
+                    @guest
+                    <div class="mb-4">
+                        <label for="name" class="block text-lg font-medium mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" class="w-full bg-gray-800 border-gray-600 rounded p-3" placeholder="Enter your name" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-lg font-medium mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" class="w-full bg-gray-800 border-gray-600 rounded p-3" placeholder="Enter your email" required>
+                    </div>
+                    @endguest
+
+                    <div class="mb-4">
+                        <label for="appointment_date" class="block text-lg font-medium mb-2">Select Date</label>
+                        <input type="text" id="appointment_date" name="appointment_date" class="w-full bg-gray-800 border-gray-600 rounded p-3" placeholder="Select a date" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-lg font-medium mb-2">Select Time</label>
+                        <input type="hidden" name="appointment_time" id="appointment_time" required>
+                        <div id="time-slots-container" class="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                            <p class="text-gray-400 col-span-full">Please select a date to see available times.</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="time_zone" class="block text-lg font-medium mb-2">Your Timezone</label>
+                        <input type="text" id="time_zone" name="time_zone" class="w-full bg-gray-800 border-gray-600 rounded p-3" readonly required>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="description" class="block text-lg font-medium mb-2">Additional Notes (Optional)</label>
+                        <textarea id="description" name="description" rows="4" class="w-full bg-gray-800 border-gray-600 rounded p-3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn primary-btn w-full">Proceed to Payment</button>
+                </form>
             </div>
         </div>
     </div>
 </section>
-<!-- BANNER SEC -->
-    <!-- BOOK AN APPOINTMENT -->
-    <section class="book-appointment">
-        <div class="container">
-            
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="book-appointment-form my-5">
-                        @if(session('success'))
-                            <div class="alert alert-success">{{session('success')}}</div>
-                        @endif
-                        <form action="{{ route('save-appointment') }}" method="POST">
-                            @csrf
-                            
-                            <div class="row">
-								
-                                <div class="form-group col-md-6">
-                                    <label for="">Estimated Date of Appointment <span style="color: red">*</span></label>
-									<div class="date-picker row">
-										<div class="form-group col-md-12 ui calendar p-0" id="example3">
-											<div class="ui input left icon">
-												<i class="calendar icon"></i>
-												<input type="text" autocomplete="off" id="sdatepicker" name="pickup_date" class="datepicker" placeholder="Date" required>
-											</div>
-										</div>
-									</div>
-								</div>
-                                <div class="form-group col-md-6">
-                                    <label for="time">Time <span style="color: red">*</span></label>
-                                    <input type="time" class="form-control" name="pickup_time" autocomplete="off" id="datetimepicker111" value="{{ old('pickup_time') }}" data-date-format="HH:mm" placeholder="choose time">
-                                    <span style="color: red">{{ $errors->first('pickup_time') }}</span>
-								</div>
-                            <!--</div>
-							<div class="row">-->
-								<div class="form-group col-md-12" style="padding-bottom:25px;">
-									<label for="" class="control-label">Time Zone<span style="color: red">*</span></label>
-									<div>
-										<select name="time_zone" id="time_zone" class="form-control time_zone">
-											<option value="" selected>Select Time Zone</option>
-											@foreach ($cities as $city)
-												<option value="{{ $city->id }}" {{ old('time_zone')==$city->id?'selected':'' }}>{{ $city->time_zone }}</option>
-											@endforeach
-										</select>
-										<span style="color: red">{{ $errors->first('time_zone') }}</span>
-									</div>
-								</div>
-							</div>
-                            <div class="row">
-                                <div class="col-md-12 form-group">
-                                    <label for="exampleFormControlTextarea3">Appointment Description <span style="color: red">*</span></label>
-                                    <textarea name="description" class="form-control" id="exampleFormControlTextarea3" rows="7" placeholder="Write description here...">{{ old('description') }}</textarea>
-                                    <span style="color: red">{{ $errors->first('description') }}</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 form-group">
-                                    <input type="submit" value="BOOK APPOINTMENT" class="book-appointment-btn">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<!-- BOOK AN APPOINTMENT -->
-<script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
-    <script>
-		var today = new Date();
-		$('#example3').calendar({
-			type: 'date',
-			minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() - -1),
-		});
-        $('#example1').calendar();
-        $('#example2').calendar({
-        type: 'date'
+@endsection
+
+@push('js')
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+(function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        const trainerId = document.querySelector('input[name="trainer_id"]').value;
+        const dateInput = document.getElementById('appointment_date');
+        const timeSlotsContainer = document.getElementById('time-slots-container');
+        const hiddenTimeInput = document.getElementById('appointment_time');
+
+        if (!trainerId || !dateInput || !timeSlotsContainer || !hiddenTimeInput) {
+            console.error("Required booking form elements are missing.");
+            return;
+        }
+
+        flatpickr(dateInput, {
+            altInput: true,
+            altFormat: "F j, Y",
+            dateFormat: "Y-m-d",
+            minDate: "today",
+            onChange: function(selectedDates, dateStr, instance) {
+                updateAvailableTimes(dateStr);
+            }
         });
-        $('#example33').calendar({
-        type: 'date'
-        });
-		
-        $('#rangestart').calendar({
-        type: 'date',
-        endCalendar: $('#rangeend')
-        });
-        $('#rangeend').calendar({
-        type: 'date',
-        startCalendar: $('#rangestart')
-        });
-        $('#example4').calendar({
-        startMode: 'year'
-        });
-        $('#example5').calendar();
-        $('#example6').calendar({
-        ampm: false,
-        type: 'time'
-        });
-        $('#example7').calendar({
-        type: 'month'
-        });
-        $('#example8').calendar({
-        type: 'year'
-        });
-        $('#example9').calendar();
-        $('#example10').calendar({
-        on: 'hover'
-        });
-        var today = new Date();
-        $('#example11').calendar({
-			type: 'date',
-        minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() - 5),
-        maxDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() + 5)
-        });
-        $('#example12').calendar({
-        monthFirst: false
-        });
-        $('#example13').calendar({
-        monthFirst: false,
-        formatter: {
-            date: function (date, settings) {
-            if (!date) return '';
-            var day = date.getDate();
-            var month = date.getMonth() + 1;
-            var year = date.getFullYear();
-            return day + '/' + month + '/' + year;
+
+        async function updateAvailableTimes(selectedDate) {
+            hiddenTimeInput.value = ''; // Reset hidden input
+            timeSlotsContainer.innerHTML = '<p class="text-gray-400 col-span-full">Loading...</p>';
+
+            if (!selectedDate) {
+                timeSlotsContainer.innerHTML = '<p class="text-gray-400 col-span-full">Please select a date to see available times.</p>';
+                return;
+            }
+
+            try {
+                const response = await fetch(`/appointments/available-times/${trainerId}/${selectedDate}`);
+                if (!response.ok) throw new Error('Failed to load time slots.');
+
+                const availableSlots = await response.json();
+                timeSlotsContainer.innerHTML = ''; // Clear previous slots
+
+                if (availableSlots.length === 0) {
+                    timeSlotsContainer.innerHTML = '<p class="text-gray-400 col-span-full">No available time slots for this date.</p>';
+                    return;
+                }
+
+                availableSlots.forEach(slot => {
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.textContent = slot;
+                    button.className = 'time-slot-btn bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition duration-300';
+                    button.dataset.time = slot;
+
+                    button.addEventListener('click', function() {
+                        // Set hidden input value
+                        hiddenTimeInput.value = this.dataset.time;
+
+                        // Handle active state for styling
+                        document.querySelectorAll('.time-slot-btn').forEach(btn => btn.classList.remove('bg-blue-500', 'hover:bg-blue-600'));
+                        this.classList.add('bg-blue-500', 'hover:bg-blue-600');
+                    });
+
+                    timeSlotsContainer.appendChild(button);
+                });
+
+            } catch (error) {
+                console.error('Error fetching available times:', error);
+                timeSlotsContainer.innerHTML = '<p class="text-red-500 col-span-full">Could not load times. Please try again.</p>';
             }
         }
-        });
-        $('#example14').calendar({
-        inline: true
-        });
-        $('#example15').calendar();
-    </script>
-    @endsection
+
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        document.getElementById('time_zone').value = timezone;
+    });
+})();
+</script>
+<style>
+    .time-slot-btn.bg-blue-500 {
+        background-color: #3b82f6 !important;
+    }
+</style>
+@endpush

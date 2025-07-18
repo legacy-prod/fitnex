@@ -34,15 +34,15 @@
             <h2 class="hd-70 heading text-primary-theme mb-20 text-center" data-aos="flip-left" data-aos-easing="linear"
                 data-aos-duration="1500">Registration</h2>
             <h6 class="text-secondry-theme fs-20 fw-700 mb-20 text-center" data-aos="fade-up" data-aos-easing="linear"
-                data-aos-duration="1500">Thank you for your interest in SCVBA!</h6>
+                data-aos-duration="1500">Thank you for your interest in FITNEX!</h6>
             <p class="hd-20 fw-medium mb-60 text-center" data-aos="fade-up" data-aos-easing="linear"
                 data-aos-duration="1500">
                 Choose from two membership types, Standard or Platinum. Platinum includes the standard membership, but also
-                allows your company representative a non-voting presence at SCVBA board meetings. Please select below to
+                allows your company representative a non-voting presence at FITNEX board meetings. Please select below to
                 begin registration. Once payment is made, you will be directed to a member directory profile form. You can
                 also access the directory info form here.
             </p>
-            <div class="row row-gap-40">
+            {{-- <div class="row row-gap-40">
                 @foreach($packages as $package)
                 <div class="col-lg-4" data-aos="fade-{{ $loop->iteration % 2 == 0 ? 'left' : 'right' }}" data-aos-easing="linear" data-aos-duration="1500">
                     <div class="card-lg text-center">
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 @endforeach
-            </div>
+            </div> --}}
             <div class="text-center mt-4">
                 <span>Already a platinum member or EPC?</span>
                 <a href="{{ route('login') }}" class="btn btn-primary ms-2">

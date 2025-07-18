@@ -30,8 +30,8 @@
             <a href="{{ route('projects.show', $project->id) }}" class="button">View Project Details</a>
         </div>
         <div class="footer">
-            &copy; {{ date('Y') }} SCVBA. All rights reserved.<br>
-            <span>South Central Virginia Business Alliance</span>
+            &copy; {{ date('Y') }} FITNEX. All rights reserved.<br>
+            <span>FITNEX</span>
         </div>
     </div>
 </body>

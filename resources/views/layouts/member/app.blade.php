@@ -40,7 +40,7 @@
 		.skin-blue .main-sidebar,
 		.content-header .content-header-right a,
 		.content .form-horizontal .btn-success {
-			background-color: #47687a !important; 
+			background-color: #000000  !important; 
 		}
 
 		/* .bg-blue {

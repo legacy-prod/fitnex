@@ -131,7 +131,12 @@
 <!-- Custom Script -->
 <script>
     $(document).ready(function() {
-        $('.sidebar-toggle').click(function() {
+        // Handle the sidebar toggle functionality
+        $('.sidebar-toggle').on('click', function(e) {
+            e.preventDefault();
+            // Toggle the sidebar collapse class on the body
+            $('body').toggleClass('sidebar-collapse');
+            // Optionally, toggle the logo visibility
             $('#header-logo').toggleClass('hide-logo');
         });
     });
@@ -143,19 +148,24 @@
         display: none;
     }
 
-    @media (max-width: 425px) {
+    @media (max-width: 430px) {
         #header-logo {
-            display: block !important; /* Ensure logo stays visible */
+            display: block !important;
+            /* Ensure logo stays visible */
         }
     }
+
     @media (max-width: 375px) {
         #header-logo {
-            display: block !important; /* Ensure logo stays visible */
+            display: block !important;
+            /* Ensure logo stays visible */
         }
     }
+
     @media (max-width: 320px) {
         #header-logo {
-            display: block !important; /* Ensure logo stays visible */
+            display: block !important;
+            /* Ensure logo stays visible */
         }
     }
 
@@ -163,4 +173,4 @@
         width: 50px;
         display: none;
     }
-</style>
+</style> 

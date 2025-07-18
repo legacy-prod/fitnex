@@ -1,5 +1,4 @@
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+
 import $, { post } from 'jquery';
 window.$ = window.jQuery = $;
 import 'slick-carousel';
@@ -10,31 +9,31 @@ $.ajaxSetup({
     }
 });
 
-$(window).on('load', function () {
-    $('.fitness-journey-slider').slick({
-        dots: true,
-        arrows: true,
-        nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>', // Custom next arrow
-        prevArrow: null, // Hide the prev arrow
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        centerMode: true,
-        centerPadding: '400px',
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    centerPadding: '0',
-                    arrows: false,
-
-                }
-            },
-
-        ]
-    });
-
+    $(document).ready(function () {
+        $('.fitness-journey-slider').slick({
+            dots: true,
+            arrows: true,
+            nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>', // Custom next arrow
+            prevArrow: null, // Hide the prev arrow
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            centerMode: true,
+            centerPadding: '400px',
+            slidesToScroll: 1,
+            centerMode: true,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        centerPadding: '0',
+                        arrows: false,
+    
+                    }
+                },
+    
+            ]
+        });
 
     $('.testimonials-slider').slick({
         dots: true,

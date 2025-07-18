@@ -35,28 +35,17 @@
 									@endforeach
 								</select>
 							</div>
-						</div>
-						{{-- <div class="form-group">
-							<label for="" class="col-sm-2 control-label">Short Description </label>
-							<div class="col-sm-9">
-								<textarea class="form-control" name="short_description" id="short_description" maxlength="200" style="height:140px;" placeholder="Enter Short Description"></textarea>
-								<span style="color: red">{{ $errors->first('short_description') }}</span>
-							</div>
-						</div>
+						</div> 
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Description</label>
-							<div class="col-sm-9">
-								<textarea class="form-control texteditor" name="description" id="description" maxlength="200" style="height:140px;" placeholder="Enter Description"></textarea>
-								<span style="color: red">{{ $errors->first('description') }}</span>
-							</div>
-						</div> --}}
-						<div class="form-group">
-							<label for="image" class="col-sm-2 control-label">Image <span style="color: red">*</span></label>
-							<div class="col-sm-9">
-								<input type="file" class="form-control" id="image" name="image" value="{{ old('image') }}" placeholder="Enter image">
-								<span style="color: red">{{ $errors->first('image') }}</span>
-							</div>
-						</div>
+							<label for="" class="col-sm-2 control-label">Image </label>
+                            <div class="col-sm-6" style="padding-top:5px">
+                                <input type="file" class="form-control" accept="image*"  name="image" id="image">
+                                <span style="color: red">{{ $errors->first('image') }}</span>
+                            </div>
+                            <div class="col-sm-4" >
+                                    <img style="width: 80px" id="banner_preview"  src="{{asset('/admin/assets/images/default.jpg') }}"  alt="Image Not Found ">
+                            </div>
+                        </div>
 						<div class="form-group">
 							<label for="" class="col-sm-2 control-label"></label>
 							<div class="col-sm-6">

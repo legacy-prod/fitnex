@@ -171,6 +171,13 @@
                 </li>
             @endcan
 
+            @can('appointment-list')
+                <li class="treeview">
+                    <a href="{{ route('appointment.index') }}" class="{{ request()->is('appointment') || request()->is('appointment/create') || request()->is('appointment/*/edit') ? 'active' : '' }}">
+                        <i class="fa fa-calendar"></i> <span>Appointments</span>
+                    </a>
+                </li>
+            @endcan 
 
 
             {{-- <li class="treeview {{ (request()->is('project_category') || request()->is('project_category/create') || request()->is('project_category/*/edit') || request()->is('projects') || request()->is('projects/create') || request()->is('projects/*/edit') || request()->is('projects/*') || request()->is('jobpost') || request()->is('jobpost/create') || request()->is('jobpost/*/edit') || request()->is('jobcategory') || request()->is('jobcategory/create') || request()->is('jobcategory/*/edit') || request()->is('documents') || request()->is('documents/create') || request()->is('documents/*/edit') || request()->is('documents/*') ) ? 'active' : '' }}" style="height: auto;">
@@ -447,14 +454,7 @@
             <i class="fa fa-calendar"></i> <span>Bookings</span>
             </a>
             </li>
-            @endcan-->
-            <!--  @can('appointment-list')
-            <li class="treeview">
-                <a href="{{ route('appointment.index') }}" class="{{ request()->is('appointment') || request()->is('appointment/create') || request()->is('appointment/*/edit') ? 'active' : '' }}">
-            <i class="fa fa-calendar"></i> <span>Appointments</span>
-            </a>
-            </li>
-            @endcan -->
+            @endcan--> 
 
            
             <!-- @can('product-list')

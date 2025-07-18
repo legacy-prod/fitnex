@@ -30,7 +30,7 @@ class StripeController extends Controller
         $response = Stripe\Charge::create ([
             "amount" => 100* 100,
             "currency" => 'usd',
-            "description" => 'RENOVAEN Subscription',
+            "description" => 'FITNEX Subscription',
             "customer" => $customer->id,
         ]);
          if($response){

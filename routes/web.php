@@ -29,6 +29,9 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\FAQController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\admin\TrainerController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\CityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,21 +77,16 @@ Route::post('forgot-password', [WebController::class, 'passwordResetLink'])->nam
 Route::get('reset-password/{verify_token}', [WebController::class, 'resetPassword'])->name('reset-password');
 Route::post('reset-password', [WebController::class, 'changePassword'])->name('password.change');
 
-
-
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
 Route::get('/admin/profile/edit', [AdminController::class, 'editProfile'])->name('admin.profile.edit');
 Route::post('/admin/profile/update', [AdminController::class, 'updateProfile'])->name('admin.profile.update');
 Route::post('admin/logout', [AdminController::class, 'logOut'])->name('admin.logout');
 
-
 Route::post('user/authenticate', [UserController::class, 'authenticate'])->name('user.authenticate');
-
 Route::post('/user/profile/update', [UserController::class, 'userUpdateProfile'])->name('user.profile.update');
-
+Route::get('/member/profile/edit', [UserController::class, 'MemberEditProfile'])->name('member.profile.edit');
 Route::post('user/logout', [UserController::class, 'logOut'])->name('user.logout');
-
 
 //Frontend
 Route::get('/', [WebController::class, 'index'])->name('index'); 
@@ -105,6 +103,7 @@ Route::get('careers', [WebController::class, 'Careers'])->name('careers');
 Route::get('leaderboard', [WebController::class, 'LeaderBoard'])->name('leaderboard');
 Route::get('gallery', [WebController::class, 'Gallery'])->name('gallery');
 Route::get('contact-us', [WebController::class, 'ContactUs'])->name('contact-us');
+Route::post('book-session', [WebController::class, 'BookSession'])->name('book-session');
 Route::get('faqs', [WebController::class, 'Faqs'])->name('faqs');
 Route::get('our-services', [WebController::class, 'Services'])->name('our-services');
 Route::get('service-details/{slug}', [WebController::class, 'ServiceDetails'])->name('service_details');
@@ -113,13 +112,12 @@ Route::get('term-and-conditions', [WebController::class, 'termAndConditions'])->
 Route::get('reviews', [WebController::class, 'Reviews'])->name('reviews');
 
 Route::get('trainers', [WebController::class, 'Trainers'])->name('trainers');
-Route::get('trainer-details/{id}', [WebController::class, 'TrainerDetail'])->name('trainer.detail');
+Route::get('trainer-details/{id}', [WebController::class, 'TrainerDetail'])->name('trainer.detail'); 
 
 //stripe payment
 Route::get('stripe/create', [StripeController::class, 'create'])->name('stripe.create');
 Route::get('stripe/checkout/{id}', [StripeController::class, 'checkout'])->name('stripe.checkout');
-Route::post('stripe/store', [StripeController::class, 'store'])->name('stripe.post');
-
+Route::post('stripe', [StripeController::class, 'stripePost'])->name('stripe.post');
 
 //documents repository
 Route::get('admin/document_repositories/pdf/{slug}', [DocumentRepositoryController::class, 'downloadPDF'])->name('documents.pdf');
@@ -132,7 +130,6 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('product/search', [ProductController::class, 'search'])->name('product.search'); 
 
-
 //NewsLetter
 Route::resource('newsletter', NewsLetterController::class);
 
@@ -144,7 +141,21 @@ Route::resource('client_contact', ClientContactController::class);
 
 //ContactUs
 Route::resource('contactus', ContactUsController::class);
+/* Route::group(['middleware' => 'auth'], function () {
+    Route::get('/appointments', [AppointmentController::class, 'index'])->name('appointments.index');
+    Route::get('/appointments/create', [AppointmentController::class, 'create'])->name('appointments.create');
+    Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
+    Route::get('/payment/success', [AppointmentController::class, 'paymentSuccess'])->name('payment.success');
+    Route::get('/payment/cancel', [AppointmentController::class, 'paymentCancel'])->name('payment.cancel');
+}); */
 
+Route::get('/appointments', [AppointmentController::class, 'index'])->name('appointments.index');
+Route::get('/appointments/create', [AppointmentController::class, 'create'])->name('appointments.create');
+Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
+Route::get('/payment/success', [AppointmentController::class, 'paymentSuccess'])->name('payment.success');
+Route::get('/payment/cancel', [AppointmentController::class, 'paymentCancel'])->name('payment.cancel');
+
+Route::get('/appointments/available-times/{trainer_id}/{date}', [AppointmentController::class, 'getAvailableTimes'])->name('appointments.available-times');
 
 Route::group(['middleware' => ['auth']], function () { 
     //Roles
@@ -171,7 +182,6 @@ Route::group(['middleware' => ['auth']], function () {
     //Agents
     Route::resource('agents', AgentController::class);
 
-
     //About
     Route::resource('about', AboutUsController::class);
 
@@ -180,7 +190,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     //payment
     Route::resource('payment', PaymentController::class);
-    
     
     //FAQS
     Route::resource('faq', FAQController::class);
@@ -191,7 +200,8 @@ Route::group(['middleware' => ['auth']], function () {
     //Home Slider
     Route::resource('homeslider', HomeSliderController::class);
     
-
+    //Appointments
+    Route::resource('appointment', AppointmentController::class);
 
     //Events
     Route::resource('event', EventController::class);

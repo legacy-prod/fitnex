@@ -10,14 +10,14 @@ class Appointment extends Model
     use HasFactory;
 
     protected $guarded = [];
-    
-    public function hasCustomer()
+
+    public function user()
     {
-        return $this->hasOne(User::class, 'id', 'customer_id');
+        return $this->belongsTo(User::class);
     }
-	
-	 public function hasTimeZone()
+
+    public function trainer()
     {
-        return $this->hasOne(City::class, 'id', 'time_zone');
+        return $this->belongsTo(Trainer::class);
     }
 }

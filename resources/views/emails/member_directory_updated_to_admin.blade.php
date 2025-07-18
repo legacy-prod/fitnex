@@ -30,8 +30,8 @@
             <a href="{{ route('member_directory.show', $memberDirectory->id) }}" class="button">View Member Directory Details</a>
         </div>
         <div class="footer">
-            &copy; {{ date('Y') }} SCVBA. All rights reserved.<br>
-            <span>South Central Virginia Business Alliance</span>
+            &copy; {{ date('Y') }} FITNEX. All rights reserved.<br>
+            <span>FITNEX</span>
         </div>
     </div>
 </body>

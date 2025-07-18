@@ -1,7 +1,26 @@
 @extends('layouts.website.master')
 @section('title', $page_title)
 @section('content')
-<section class="inner-banner listing-banner" style="background: url(' {{ asset('/assets/website/images/trainer-banner.webp') }}') no-repeat center/cover;">
+
+
+
+
+
+
+<section class="inner-banner listing-banner" style="background: url('{{ ($banner && $banner->image) ? asset('/admin/assets/images/banner/'.$banner->image) : asset('/admin/assets/images/images.png') }}') no-repeat center/cover">
+    <div class="container">
+        <h1 class="relative mx-auto text-[50px] text-white font-bold leading-[1.1]" data-aos="flip-right" data-aos-easing="linear" data-aos-duration="1500">
+            @php
+                $title = ($banner && $banner->name) ? $banner->name : '';
+                $parts = explode(' ', $title, 2);
+            @endphp
+            <span class="italic uppercase font-black">
+                <span class="primary-theme-text">{{ $parts[0] }}</span>@if(isset($parts[1])) {{ $parts[1] }}@endif
+            </span>
+        </h1>
+    </div>
+</section>
+{{-- <section class="inner-banner listing-banner" style="background: url(' {{ asset('/assets/website/images/trainer-banner.webp') }}') no-repeat center/cover;">
   <div class="container">
       <h1 class="relative mx-auto text-[50px] text-white font-bold leading-[1.1] lg:max-w-[680px] xxl:max-w-[860px] k+pfr5Wx@I8MPO@UuY'2"
           data-aos="flip-right"
@@ -10,7 +29,13 @@
           Book Your Fitness Session with <span class="italic uppercase font-black"><span class="primary-theme">FIT</span>NEX</span>
       </h1>
   </div>
-</section>
+</section> --}}
+
+
+
+
+
+
 <div id="cursor-card" class="fixed top-0 left-0 w-64 bg-primary-theme text-white p-4 rounded-lg shadow-2xl pointer-events-none z-50 opacity-0 scale-0 transform-gpu" style="transform-origin: center center;">
   <!-- <img id="cursor-card-img" src="" alt="" class="w-full h-40 object-cover rounded-t-lg"> -->
   <div class="p-4">

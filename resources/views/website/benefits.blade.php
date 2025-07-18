@@ -37,7 +37,7 @@
     <p class="hd-42 fw-semibold text-center mb-50" data-aos="fade-up"
      data-aos-easing="linear"
      data-aos-duration="1500">
-      We promote, connect, and advocate for all local businesses within our Alliance Areas.
+      We promote, connect, and advocate for all local businesses within our Area.
     </p>
   </div>
   <div class="row">
@@ -89,10 +89,10 @@
           <span class="fw-bold">Share industry intelligence so you can plan for current and future business opportunities</span>.Timely insights and projections will help position you to submit effective proposals. 
         </p>
         <p class="hd-20 fw-medium text-capitalize mb-20">
-          <span class="fw-bold">Display your business name, logo, description, and contact information listed in the SCVBA directory.</span> Contractors, especially ones from out of state, need a single source of information to fill their positions and find the goods, supplies, and services they need. Our comprehensive directory is a trusted source for reliable, affordable, and reputable businesses.
+          <span class="fw-bold">Display your business name, logo, description, and contact information listed in the FITNEX directory.</span> Contractors, especially ones from out of state, need a single source of information to fill their positions and find the goods, supplies, and services they need. Our comprehensive directory is a trusted source for reliable, affordable, and reputable businesses.
         </p>
         <p class="hd-20 fw-medium mb-20 text-capitalize">
-          <span class="fw-bold">Connect you directly with contractors</span>. Have a new service offer or novel business opportunity? Through SCVBA, you can connect and network directly with local, national, and international businesses to expand, innovate, and find business partners.
+          <span class="fw-bold">Connect you directly with contractors</span>. Have a new service offer or novel business opportunity? Through FITNEX, you can connect and network directly with local, national, and international businesses to expand, innovate, and find business partners.
         </p>
         <p class="hd-20 fw-medium text-capitalize">
           <span class="fw-bold">Establish your reputation</span>. Grow your reach and name recognition in our area and across the nation.

@@ -37,12 +37,31 @@ class BannerController extends Controller
                 $query->where('status' ,$request['status']);
             }
             $banners=$query->paginate(10);
-            return (string) view('admin.banner.search' , compact('banners'));
+            $pages = $this->getPages();
+            return (string) view('admin.banner.search' , compact('banners', 'pages'));
         }
 
         $page_title= 'All Banner';
+        $pages = $this->getPages();
         $banners = Banner::orderby('id' , 'desc')->paginate(10);
-        return view('admin.banner.index' , compact('banners', 'page_title'));
+        return view('admin.banner.index' , compact('banners', 'page_title', 'pages'));
+    }
+
+    private function getPages()
+    {
+        return [
+            'about-us' => 'About Us',
+            'trainers' => 'Trainers',
+            'trainer.detail' => 'Trainer Detail',
+            'blog' => 'Blog',
+            'contact-us' => 'Contact Us',
+            'term-of-service' => 'Terms Of Service',
+            'privacy-policy' => 'Privacy Policy',
+            'refund-policy' => 'Refund Policy',
+            'appointments.create' => 'Appointments',
+            'registration' => 'Registration',
+            'login' => 'Login',
+        ];
     }
 
     /**
@@ -53,16 +72,7 @@ class BannerController extends Controller
     public function create()
     {
         $page_title= "Add Banner";
-        $pages = [
-            'about-us' => 'About Us',
-            'trainers' => 'Trainers',
-            'trainer-detail' => 'Trainer Detail',
-            'blog' => 'Blog',
-            'contact-us' => 'Contact Us', 
-            'term-of-service' => 'Terms Of Service', 
-            'privacy-policy' => 'Privacy Policy', 
-            'refund-policy' => 'Refund Policy',
-        ];
+        $pages = $this->getPages();
         return view('admin.banner.create' , compact('page_title', 'pages'));
     }
 
@@ -120,12 +130,15 @@ class BannerController extends Controller
         $pages = [
             'about-us' => 'About Us',
             'trainers' => 'Trainers',
-            'trainer-detail' => 'Trainer Detail',
+            'trainer.detail' => 'Trainer Detail',
             'blog' => 'Blog',
             'contact-us' => 'Contact Us',
+            'appointments.create' => 'Appointments',
             'term-of-service' => 'Terms Of Service', 
             'privacy-policy' => 'Privacy Policy', 
             'refund-policy' => 'Refund Policy',
+            'registration' => 'Registration',
+            'login' => 'Login',
         ];
         return view('admin.banner.edit' , compact('banners' , 'page_title', 'pages'));
 
