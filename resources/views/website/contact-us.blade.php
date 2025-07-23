@@ -26,8 +26,8 @@
 <!-- Contact Us Section -->
 <section class="contact-us-page py-10 lg:py-20 bg-black">
     <div class="container mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <div class="contact-info-wrapper text-white p-6 rounded-lg h-full">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10"> 
+            <div class="contact-info-wrapper text-white p-6 rounded-lg h-full"> 
                 <h2 class="text-3xl font-bold mb-6 text-white">{!! $home_page_data['contact_heading'] !!}</h2>
                 <ul class="space-y-4">
                     <li class="flex items-center">
@@ -51,33 +51,30 @@
                     <li><a href="{{ $home_page_data['footer_linkdin'] }}"><i class="fab fa-linkedin-in"></i></a></li>
                 </div>
             </div>
-            <div class="" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="1500">
-                <div class="img-wrapper">
-                    <img src="{{ asset('/admin/assets/images/page') }}/{{ $home_page_data['contact_image'] }}" alt="contact">
+            <div> 
+                <div class="field-wrap p-6 rounded-lg">
+                    <h2 class="text-3xl font-bold mb-6 text-white">{!! $home_page_data['form_heading'] !!}</h2>
+                    <form action="{{ route('contact.store') }}" id="regform" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+                        @csrf
+                        <div class="mb-5">
+                            <label for="name" class="label-field">Full Name</label>
+                            <input type="text" class="input-field" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="mb-5">
+                            <label for="email" class="label-field">Email Address</label>
+                            <input type="email" class="input-field" id="email" name="email" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-5">
+                            <label for="phone" class="label-field">Phone Number</label>
+                            <input type="text" class="input-field" id="phone" name="phone" placeholder="Phone Number" required>
+                        </div> 
+                        <div class="mb-5">
+                            <label for="message" class="label-field">Message</label>
+                            <textarea class="input-field" id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary-btn submit-btn w-full">Send Message</button>
+                    </form>
                 </div>
-            </div>
-            <div class="field-wrap p-6 rounded-lg">
-                <h2 class="text-3xl font-bold mb-6 text-white">{!! $home_page_data['form_heading'] !!}</h2>
-                <form action="{{ route('contact.store') }}" id="regform" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
-                    @csrf
-                    <div class="mb-5">
-                        <label for="name" class="label-field">Full Name</label>
-                        <input type="text" class="input-field" id="name" name="name" placeholder="John Doe" required>
-                    </div>
-                    <div class="mb-5">
-                        <label for="email" class="label-field">Email Address</label>
-                        <input type="email" class="input-field" id="email" name="email" placeholder="name@example.com" required>
-                    </div>
-                    <div class="mb-5">
-                        <label for="phone" class="label-field">Phone Number</label>
-                        <input type="text" class="input-field" id="phone" name="phone" placeholder="Phone Number" required>
-                    </div> 
-                    <div class="mb-5">
-                        <label for="message" class="label-field">Message</label>
-                        <textarea class="input-field" id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
-                    </div>
-                    <button type="submit" class="btn primary-btn submit-btn w-full">Send Message</button>
-                </form>
             </div>
         </div>
     </div>
