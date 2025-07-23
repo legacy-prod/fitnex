@@ -21,7 +21,7 @@
 					<div class="box-body">
 						
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Contact Heading</label>
+							<label for="" class="col-sm-2 control-label">Contact Form Heading</label>
 							<div class="col-sm-9">
 								<input type="text" name="contact_heading" class="form-control" value="{{ isset($page_data['contact_heading'])?$page_data['contact_heading']:'' }}" placeholder="Enter heading">
 							</div>
@@ -53,22 +53,22 @@
 						<div class="form-group">
 							<label for="" class="col-sm-2 control-label">Facebook Link </label>
 							<div class="col-sm-9">
-								<input type="text" name="footer_facebok" class="form-control" value="{{ isset($page_data['footer_facebok'])?$page_data['footer_facebok']:'' }}" placeholder="Enter social link">
+								<input type="text" name="contact_facebok" class="form-control" value="{{ isset($page_data['contact_facebok'])?$page_data['contact_facebok']:'' }}" placeholder="Enter social link">
 							</div>
 						</div>
                         <div class="form-group">
 							<label for="" class="col-sm-2 control-label">Twitter Link </label>
 							<div class="col-sm-9">
-								<input type="text" name="footer_twiter" class="form-control" value="{{ isset($page_data['footer_twiter'])?$page_data['footer_twiter']:'' }}" placeholder="Enter social link">
+								<input type="text" name="contact_twiter" class="form-control" value="{{ isset($page_data['contact_twiter'])?$page_data['contact_twiter']:'' }}" placeholder="Enter social link">
 							</div>
 						</div>
                         <div class="form-group">
 							<label for="" class="col-sm-2 control-label">LinkedIn Link</label>
 							<div class="col-sm-9">
-								<input type="text" name="footer_linkdin" class="form-control" value="{{ isset($page_data['footer_linkdin'])?$page_data['footer_linkdin']:'' }}" placeholder="Enter social link">
+								<input type="text" name="contact_linkdin" class="form-control" value="{{ isset($page_data['contact_linkdin'])?$page_data['contact_linkdin']:'' }}" placeholder="Enter social link">
 							</div>
 						</div>
-						<div class="form-group">
+						{{-- <div class="form-group">
 							<label for="" class="col-sm-2 control-label">Contact Image</label>
 							<div class="col-sm-6">
 								<input type="file" name="contact_image" class="form-control">
@@ -80,7 +80,7 @@
                                     </div>
                                 </div>
                             @endif
-                        </div>
+                        </div> --}}
 						{{-- <div class="form-group">
 							<label for="" class="col-sm-2 control-label">Contact Map (iframe Code)</label>
 							<div class="col-sm-9">

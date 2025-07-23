@@ -37,10 +37,23 @@
 								<textarea name="footer_description" id="" class="form-control texteditor" placeholder="Enter description">{{ isset($page_data['footer_description'])?$page_data['footer_description']:'' }}</textarea>
 							</div>
 						</div>
-                        {{-- <div class="form-group">
-							<label for="" class="col-sm-2 control-label">Facebook Link </label>
+                       
+						<div class="form-group">
+							 <label for="" class="col-sm-2 control-label">Instagram Link</label>
+							 <div class="col-sm-9">
+								 <input type="text" name="footer_instagram" class="form-control" value="{{ isset($page_data['footer_instagram'])?$page_data['footer_instagram']:'' }}" placeholder="Enter social link">
+							 </div>
+						</div>
+                        <div class="form-group">
+							<label for="" class="col-sm-2 control-label">LinkedIn Link</label>
 							<div class="col-sm-9">
-								<input type="text" name="footer_facebok" class="form-control" value="{{ isset($page_data['footer_facebok'])?$page_data['footer_facebok']:'' }}" placeholder="Enter social link">
+								<input type="text" name="footer_linkdin" class="form-control" value="{{ isset($page_data['footer_linkdin'])?$page_data['footer_linkdin']:'' }}" placeholder="Enter social link">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="" class="col-sm-2 control-label">Youtube</label>
+							<div class="col-sm-9">
+								<input type="text" name="footer_youtube" class="form-control" value="{{ isset($page_data['footer_youtube'])?$page_data['footer_youtube']:'' }}" placeholder="Enter social link">
 							</div>
 						</div>
                         <div class="form-group">
@@ -49,18 +62,6 @@
 								<input type="text" name="footer_twiter" class="form-control" value="{{ isset($page_data['footer_twiter'])?$page_data['footer_twiter']:'' }}" placeholder="Enter social link">
 							</div>
 						</div>
-                        <div class="form-group">
-							<label for="" class="col-sm-2 control-label">LinkedIn Link</label>
-							<div class="col-sm-9">
-								<input type="text" name="footer_linkdin" class="form-control" value="{{ isset($page_data['footer_linkdin'])?$page_data['footer_linkdin']:'' }}" placeholder="Enter social link">
-							</div>
-						</div> --}}
-						<!--{{--  <div class="form-group">
-							 <label for="" class="col-sm-2 control-label">Instagram Link </label>
-							 <div class="col-sm-9">
-								 <input type="text" name="footer_instagram" class="form-control" value="{{ isset($page_data['footer_instagram'])?$page_data['footer_instagram']:'' }}" placeholder="Enter social link">
-							 </div>
-						 </div> --}} -->
                         {{-- <div class="form-group">
 							<label for="" class="col-sm-2 control-label">Number</label>
 							<div class="col-sm-9">

@@ -46,9 +46,9 @@
                 <hr class="my-8 border-gray-700">
                 <h3 class="text-2xl font-bold mb-4 text-white">Follow Us</h3>
                 <div class="social-icons">
-                    <li><a href="{{ $home_page_data['footer_facebok'] }}"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="{{ $home_page_data['footer_twiter'] }}"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="{{ $home_page_data['footer_linkdin'] }}"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="{{ $home_page_data['contact_facebok'] }}"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="{{ $home_page_data['contact_twiter'] }}"><i class="fa-brands fa-x-twitter"></i></a></li>
+                    <li><a href="{{ $home_page_data['contact_linkdin'] }}"><i class="fab fa-linkedin-in"></i></a></li>
                 </div>
             </div>
             <div> 

@@ -30,10 +30,10 @@
             </div>
             <div class="md:mx-auto">
                 <h4 class="text-white font-secondary font-bold text-[20px] mb-[20px]">Social media</h4>
-                <ul class="footer-links social-icons">
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                <ul class="footer-links social-icons"> 
+                    <li><a href="{{ $home_page_data['footer_instagram'] }}"><i class="fa-brands fa-instagram"></i></a></li>
                     <li><a href="{{ $home_page_data['footer_linkdin'] }}"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                    <li><a href="{{ $home_page_data['footer_youtube'] }}"><i class="fa-brands fa-youtube"></i></a></li>
                     <li><a href="{{ $home_page_data['footer_twiter'] }}"><i class="fa-brands fa-x-twitter"></i></a></li>
                 </ul>
             </div>
