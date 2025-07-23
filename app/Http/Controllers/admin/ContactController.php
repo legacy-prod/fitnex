@@ -29,7 +29,6 @@ class ContactController extends Controller
     public function index(Request $request)
     {
         if($request->ajax()){
-            $uid = Auth::user()->id;
             $query=Contact::orderby('id' , 'desc')->where('id' ,'>' , 0);
             if($request['search'] != ""){
                 $query->where('name' , 'like' , '%' . $request['search'] .'%');
@@ -40,19 +39,13 @@ class ContactController extends Controller
                 }
                 $query->where('status' ,$request['status']);
             }
-            $models = Contact::where('agent_id',$uid)->orderby('id' , 'desc')->paginate(10);
+            $models = Contact::orderby('id' , 'desc')->paginate(10);
             return (string) view('admin.contact.search' , compact('models'));
         }
 
-        $page_title= 'All Contact Me';
+        $page_title= 'All Contact Us';
 
-        if(Auth::user()->hasRole('Contractor')){
-            $uid = Auth::user()->id;
-            $models = Contact::where('agent_id',$uid)->orderby('id' , 'desc')->paginate(10);
-        }else{
-            $uid = Auth::user()->id;
-            $models = Contact::where('agent_id',$uid)->orderby('id' , 'desc')->paginate(10);
-        }
+        $models = Contact::orderby('id' , 'desc')->paginate(10);
         return view('admin.contact.index' , compact('models', 'page_title'));
     }
 
@@ -88,19 +81,13 @@ class ContactController extends Controller
         $model->email = $request->email;
         $model->phone = $request->phone;
         $model->message = $request->message;
-
-        if ($request->has('agent_id')) {
-            $model->agent_id = $request->agent_id;
-            
-            $trainer_id = $request->agent_id;
-            $trainer = Trainer::find($trainer_id);
-            
-            if ($trainer && $trainer->user) {
-                Mail::to($trainer->user->email)->send(new TrainerContacted($model));
-            }
-        }
-        
         $model->save();
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'success'
+            ]);
+        }
 
         return redirect()->back()->with('message', 'Your message has been sent successfully!');
     }

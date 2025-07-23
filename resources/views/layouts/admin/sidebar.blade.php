@@ -1,4 +1,4 @@
-<aside class="main-sidebar" style="margin-top: 120px;">
+<aside class="main-sidebar" style="margin-top: 60px;">
     <section class="sidebar">
         <ul class="sidebar-menu">
 
@@ -166,6 +166,13 @@
             @can('contactus-list')
                 <li class="treeview mt-2">
                     <a href="{{ route('contactus.index') }}" class="{{ request()->is('contactus') ? 'active' : '' }}">
+                        <i class="fa fa-envelope"></i> <span>Free Trial Signup</span>
+                    </a>
+                </li>
+            @endcan
+            @can('contact-list')
+                <li class="treeview mt-2">
+                    <a href="{{ route('contact.index') }}" class="{{ request()->is('contact') ? 'active' : '' }}">
                         <i class="fa fa-envelope"></i> <span>All Contact Us</span>
                     </a>
                 </li>

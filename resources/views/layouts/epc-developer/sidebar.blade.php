@@ -7,7 +7,7 @@
     display: block;
 }
 </style>
-<aside class="main-sidebar" style="margin-top: 120px;">
+<aside class="main-sidebar" style="margin-top: 60px;">
     <section class="sidebar">
         <ul class="sidebar-menu">
             <li class="treeview mt-2">

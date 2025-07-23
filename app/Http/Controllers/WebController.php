@@ -216,14 +216,14 @@ class WebController extends Controller
     }
 
     
-    public function Benefits()
+    /* public function Benefits()
     {
         $abouts = AboutUs::where('status', 1)->get();
         $banner = Banner::where('id', 6)->where('status', 1)->first();
         $testimonials = Testimonial::where('status', '=', 1)->get();
         $page_title = 'Benefits | FITNEX';
         return view('website.benefits', compact('page_title', 'abouts', 'banner', 'testimonials'));
-    }
+    } */
     
     /* public function MemberDirectory()
     {
@@ -238,7 +238,7 @@ class WebController extends Controller
         return view('website.member-directory', compact('page_title', 'categories', 'member_directories', 'abouts', 'banner'));
     } */
 
-    public function MemberDirectory()
+   /*  public function MemberDirectory()
     {
         $abouts = AboutUs::where('status', 1)->get();
         $categories = Category::where('status', 1)->get();
@@ -260,7 +260,7 @@ class WebController extends Controller
         $all_members = collect($member_directories_raw)->unique('title')->sortBy('title');
 
         return view('website.member-directory', compact('page_title', 'categories', 'member_directories', 'all_members', 'abouts', 'banner'));
-    }
+    } */
 
 
     /* public function Registration()
@@ -279,39 +279,46 @@ class WebController extends Controller
        /*  $packages = Package::where('status', 1)->get(); */
         return view('website.sign-up', compact('page_title', 'banner', 'categories'));
     }
-    public function Events()
+    public function Blogs()
+    {
+        $banner = Banner::where('slug', request()->route()->getName())->where('status', 1)->first();
+        $page_title = 'Blogs | FITNEX';
+        $blogs = Event::where('status', 1)->orderBy('date', 'asc')->get();
+        return view('website.blogs', compact('page_title', 'banner', 'blogs'));
+    }
+    /* public function Events()
     {
         $banner = Banner::where('id', 7)->where('status', 1)->first();
         $page_title = 'Events | FITNEX';
         $events = Event::where('status', 1)->orderBy('date', 'asc')->get();
         return view('website.events', compact('page_title', 'banner', 'events'));
-    }
-    public function Careers()
+    } */
+   /*  public function Careers()
     {
         $banner = Banner::where('id', 19)->where('status', 1)->first();
         $page_title = 'Careers | FITNEX';
         return view('website.careers', compact('page_title', 'banner'));
-    }
+    } */
 
-    public function ProjectHub()
+    /* public function ProjectHub()
     {
         $banner = Banner::where('id', 9)->where('status', 1)->first(); 
         $projects = Project::where('status', 'approved')->get();
         $page_title = 'Project Hub | FITNEX';
         return view('website.project-hub', compact('page_title', 'projects', 'banner'));
-    }
+    } */
 
-    public function Gallery()
+   /*  public function Gallery()
     {
         $banner = Banner::where('status', 1)->first();
         $page_title = 'Gallery | FITNEX';
         return view('website.gallery', compact('page_title', 'banner'));
-    }
+    } */
 
     public function ContactUs()
     {
-        $banner = Banner::where('id', 8)->where('status', 1)->first();
-        $page_title = 'Contact Us | FITNEX';
+        $banner = Banner::where('slug', request()->route()->getName())->where('status', 1)->first();
+        $page_title = 'Contact Us | FITNEX'; 
         return view('website.contact-us', compact('page_title', 'banner'));
     }
 
@@ -341,14 +348,14 @@ class WebController extends Controller
         return view('website.thank-you', compact('page_title', 'banner'));
     }
 
-    public function AgentDetail($id)
+    /* public function AgentDetail($id)
     {
         $banner = Banner::where('status', 1)->first();
         $page_title = 'Contractor Detail';
         $agent_detail = User::where('id', $id)->first();
         $contacts = Contact::where('status', 1)->where('agent_id', $id)->get();
         return view('website.contractor-detail', compact('page_title', 'banner', 'contacts', 'agent_detail'));
-    }
+    } */
 
     public function SignUp()
     {
@@ -496,7 +503,7 @@ class WebController extends Controller
         $this->middleware(['auth', 'role:EPC Developer'])->only(['OurContractors', 'AgentDetail']);
     }
 
-    public function OurContractors()
+    /* public function OurContractors()
     {
         $page_title = 'Our Contractors';
 
@@ -518,9 +525,9 @@ class WebController extends Controller
 
         // Pass both variables to the view
         return view('website.our-contractors', compact('page_title', 'topRated', 'allContractors'));
-    }
+    } */
 
-    public function ServiceDetails($slug)
+    /* public function ServiceDetails($slug)
     {
         $category = Category::where('slug', $slug)->where('status', 1)->firstOrFail();
         $page_title = $category->title . ' Details'; // Or a more generic title if preferred
@@ -529,5 +536,5 @@ class WebController extends Controller
         
         // Assuming you have a 'website.service-details' view to display the details
         return view('website.service-details', compact('page_title', 'category', 'abouts', 'testimonials'));
-    }
+    } */
 }

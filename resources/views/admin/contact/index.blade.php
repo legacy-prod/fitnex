@@ -41,8 +41,7 @@
 									<th>Name</th>
 									<th>Email</th>
 									<th>Phone</th>
-									<th>Message</th>
-									<!-- <th>Status</th> -->
+									<th>Message</th> 
 									<th width="140">Action</th>
 								</tr>
 							</thead>
@@ -53,14 +52,7 @@
 									<td>{{$model->name}}</td>
 									<td>{{$model->email}}</td>
 									<td>{{$model->phone}}</td>
-									<td>{{$model->message}}</td>
-									<!-- <td>
-									@if($model->status)
-									<span class="badge badge-success">Active</span>
-									@else
-									<span class="badge badge-danger">In-Active</span>
-									@endif
-								</td> -->
+									<td>{{$model->message}}</td> 
 									<td width="250px">
 										<button class="btn btn-danger btn-xs delete" data-slug="{{ $model->id }}" data-del-url="{{ url('contact', $model->id) }}"><i class="fa fa-trash"></i> Delete</button>
 									</td>

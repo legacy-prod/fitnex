@@ -32,7 +32,7 @@ class ContactUsController extends Controller
             return (string) view('admin.contact_us.search' , compact('models'));
         }
 
-        $page_title= 'All Contact Us';
+        $page_title= 'Free Trial Signup';
         $models=ContactUs::orderby('id', 'desc')->paginate(10); 
         return view('admin.contact_us.index' , compact('page_title' , 'models'));
     }

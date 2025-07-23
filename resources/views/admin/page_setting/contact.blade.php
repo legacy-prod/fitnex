@@ -51,6 +51,24 @@
 							</div>
 						</div>
 						<div class="form-group">
+							<label for="" class="col-sm-2 control-label">Facebook Link </label>
+							<div class="col-sm-9">
+								<input type="text" name="footer_facebok" class="form-control" value="{{ isset($page_data['footer_facebok'])?$page_data['footer_facebok']:'' }}" placeholder="Enter social link">
+							</div>
+						</div>
+                        <div class="form-group">
+							<label for="" class="col-sm-2 control-label">Twitter Link </label>
+							<div class="col-sm-9">
+								<input type="text" name="footer_twiter" class="form-control" value="{{ isset($page_data['footer_twiter'])?$page_data['footer_twiter']:'' }}" placeholder="Enter social link">
+							</div>
+						</div>
+                        <div class="form-group">
+							<label for="" class="col-sm-2 control-label">LinkedIn Link</label>
+							<div class="col-sm-9">
+								<input type="text" name="footer_linkdin" class="form-control" value="{{ isset($page_data['footer_linkdin'])?$page_data['footer_linkdin']:'' }}" placeholder="Enter social link">
+							</div>
+						</div>
+						<div class="form-group">
 							<label for="" class="col-sm-2 control-label">Contact Image</label>
 							<div class="col-sm-6">
 								<input type="file" name="contact_image" class="form-control">

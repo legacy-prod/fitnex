@@ -589,7 +589,7 @@ progress {
   color: #6c757d;
 }
 .blockquote-footer::before {
-  content: "— ";
+  content: "— ";
 }
 
 .img-fluid {
@@ -1523,6 +1523,12 @@ progress {
 .gy-lg-5 {
     --bs-gutter-y: 3rem;
   }
+}
+.primary-theme-bg {
+    background-color: #00A3FF; /* Your primary theme color */
+}
+.primary-theme-text {
+    color: #00A3FF; /* Your primary theme color */
 }
 @media (min-width: 1200px) {
   .col-xl {

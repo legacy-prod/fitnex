@@ -1,6 +1,6 @@
 <header class="main-header">
     <a href="{{ route('dashboard') }}" class="logo">
-        <img id="header-logo" src="{{asset('/admin/assets/images/page') }}/{{ $home_page_data['header_logo'] }}" style="width: 150px;position:absolute;left: 2%;top: 20%;height: 150px;" alt="">
+        <img id="header-logo" src="{{asset('/admin/assets/images/page') }}/{{ $home_page_data['header_logo'] }}" style="width: 150px;position:absolute;left: 2%;top: 20%;height: 100px;" alt="">
         
     </a>
     <nav class="navbar navbar-static-top">
