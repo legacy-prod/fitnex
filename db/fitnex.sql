@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2025 at 11:34 PM
+-- Generation Time: Jul 24, 2025 at 08:34 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -170,7 +170,8 @@ INSERT INTO `banners` (`id`, `name`, `slug`, `short_description`, `description`,
 (4, 'About Us', 'about-us', NULL, NULL, '25-07-17-221414.webp', '1', NULL, '2025-07-17 17:14:14', '2025-07-17 17:15:18'),
 (5, 'Book Your Session', 'appointments.create', NULL, NULL, '25-07-17-221630.webp', '1', NULL, '2025-07-17 17:16:30', '2025-07-17 17:16:30'),
 (6, 'Resigtration', 'registration', NULL, NULL, '25-07-18-164614.webp', '1', NULL, '2025-07-18 11:46:14', '2025-07-18 11:46:14'),
-(7, 'Login Your Account', 'login', NULL, NULL, '25-07-18-174534.webp', '1', NULL, '2025-07-18 12:45:34', '2025-07-18 12:45:34');
+(7, 'Login Your Account', 'login', NULL, NULL, '25-07-18-174534.webp', '1', NULL, '2025-07-18 12:45:34', '2025-07-18 12:45:34'),
+(8, 'Contact Us', 'contact-us', NULL, NULL, '25-07-23-164952.webp', '1', NULL, '2025-07-23 11:49:53', '2025-07-23 11:49:53');
 
 -- --------------------------------------------------------
 
@@ -314,7 +315,6 @@ INSERT INTO `client_contacts` (`id`, `user_id`, `epc_developer_id`, `project_id`
 
 CREATE TABLE `contacts` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `agent_id` bigint(20) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
@@ -329,25 +329,8 @@ CREATE TABLE `contacts` (
 -- Dumping data for table `contacts`
 --
 
-INSERT INTO `contacts` (`id`, `agent_id`, `name`, `email`, `phone`, `message`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Phoebe Ryan', 'vunapyzyt@mailinator.com', '+1 (813) 893-3941', 'Aliqua Asperiores e', '1', '2025-06-13 15:22:28', '2022-08-16 14:20:01', '2025-06-13 10:22:28'),
-(2, 22, 'Candace Ayers', 'cekiweco@mailinator.com', '+1 (558) 804-3481', 'Cupiditate nihil at', '1', NULL, '2022-08-16 14:21:48', '2022-08-16 14:21:48'),
-(3, 1, 'Donna Gregory', 'fybiwimoqa@mailinator.com', '+1 (138) 971-4713', 'Beatae ea consequatu', '1', '2025-06-13 15:22:31', '2022-08-16 15:50:41', '2025-06-13 10:22:31'),
-(4, 7, 'gfdfgdfgf', 'betyk@mailinator.com', '66555566', 'gdtdft6f6y6f6uygy', '1', NULL, '2022-08-18 16:21:37', '2022-08-18 16:21:37'),
-(5, 7, 'Quincy Stanley', 'maqumonap@mailinator.com', '+1 (269) 742-9743', 'Eligendi eaque et si', '1', NULL, '2022-08-18 16:32:54', '2022-08-18 16:32:54'),
-(6, 7, 'Hunter Warren', 'nenejinido@mailinator.com', '+1 (146) 106-3396', 'Eos qui eaque id a', '1', NULL, '2022-08-18 17:44:57', '2022-08-18 17:44:57'),
-(7, 5, 'Anthony Marsh', 'qifom@mailinator.com', '+1 (651) 629-8104', 'Necessitatibus tempo', '1', NULL, '2022-08-18 17:47:53', '2022-08-18 17:47:53'),
-(8, 3, 'Alexander Wolfe', 'nyteqa@mailinator.com', '+1 (719) 616-5625', 'Eu voluptatibus opti', '1', NULL, '2022-08-18 18:41:26', '2022-08-18 18:41:26'),
-(9, 7, 'Malachi Poole', 'qeqave@mailinator.com', '+1 (788) 231-8545', 'Eiusmod dolorem maxi', '1', NULL, '2022-08-18 18:44:55', '2022-08-18 18:44:55'),
-(10, 5, 'Josiah Ray', 'behyteboqi@mailinator.com', '+1 (724) 786-7437', 'Non omnis dolore min', '1', NULL, '2022-08-18 18:45:22', '2022-08-18 18:45:22'),
-(11, 23, 'Chastity Turner', 'vudobojiqu@mailinator.com', '+1 (311) 871-9858', 'Eos expedita ex duis', '1', NULL, '2022-08-19 17:08:15', '2022-08-19 17:08:15'),
-(12, 25, 'Berk Watts', 'xajysyg@mailinator.com', '+1 (187) 171-5039', 'Ut nulla odit impedi', '1', NULL, '2022-08-19 17:08:37', '2022-08-19 17:08:37'),
-(13, 25, 'Armando Hatfield', 'furu@mailinator.com', '+1 (825) 492-6208', 'Nisi in non natus mi', '1', NULL, '2022-08-19 17:09:04', '2022-08-19 17:09:04'),
-(14, 22, 'Ezra Mcgowan', 'xarolarami@mailinator.com', '+1 (914) 396-3678', 'Aliquip commodo in n', '1', NULL, '2022-08-23 10:29:08', '2022-08-23 10:29:08'),
-(15, 4, 'Hakeem Whitaker', 'qyfi@mailinator.com', '+1 (222) 973-8058', 'In lorem minus dolor', '1', '2024-08-29 19:01:57', '2024-08-29 13:35:44', '2024-08-29 14:01:57'),
-(16, 14, 'Walker Barker', 'bebityj@mailinator.com', '+1 (741) 901-1876', 'Similique voluptatum', '1', NULL, '2024-08-29 16:31:29', '2024-08-29 16:31:29'),
-(17, 4, 'Alan Anderson', 'tateny@mailinator.com', '+1 (291) 817-3903', 'Esse reiciendis ut i', '1', NULL, '2025-07-08 18:28:14', '2025-07-08 18:28:14'),
-(18, 4, 'Molly Abbott', 'zubukuz@mailinator.com', '+1 (248) 478-7872', 'Veniam aute quos ar', '1', NULL, '2025-07-08 18:29:00', '2025-07-08 18:29:00');
+INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `message`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'Roary Fowler', 'xaxa@mailinator.com', '+1 (744) 744-9955', 'Nemo animi vitae pa', '1', NULL, '2025-07-23 15:06:56', '2025-07-23 15:06:56');
 
 -- --------------------------------------------------------
 
@@ -374,7 +357,9 @@ CREATE TABLE `contact_us` (
 
 INSERT INTO `contact_us` (`id`, `name`, `email`, `phone`, `address`, `message`, `service`, `status`, `created_at`, `updated_at`) VALUES
 (33, 'Ina Kim', 'lilyp@mailinator.com', '+1 (562) 716-2537', NULL, NULL, 'body-building', '1', '2025-07-17 11:21:03', '2025-07-17 11:21:03'),
-(34, 'Rogan Zimmerman', 'gadu@mailinator.com', '+1 (759) 967-1155', NULL, NULL, 'personal-training', '1', '2025-07-17 15:27:31', '2025-07-17 15:27:31');
+(34, 'Rogan Zimmerman', 'gadu@mailinator.com', '+1 (759) 967-1155', NULL, NULL, 'personal-training', '1', '2025-07-17 15:27:31', '2025-07-17 15:27:31'),
+(35, 'Madaline Francis', 'humomavy@mailinator.com', NULL, NULL, 'Et irure quasi nostr', NULL, '1', '2025-07-23 14:00:52', '2025-07-23 14:00:52'),
+(36, 'Kaseem Andrews', 'hipeh@mailinator.com', '+1 (846) 895-7207', NULL, NULL, 'sports-performance', '1', '2025-07-23 15:07:27', '2025-07-23 15:07:27');
 
 -- --------------------------------------------------------
 
@@ -532,9 +517,7 @@ INSERT INTO `f_a_q_s` (`id`, `created_by`, `question`, `answer`, `status`, `dele
 (6, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '1', NULL, '2022-05-19 12:42:36', '2022-05-19 12:42:36'),
 (7, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '1', NULL, '2022-05-19 12:42:49', '2022-05-19 12:42:49'),
 (8, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '1', NULL, '2022-05-19 12:43:19', '2022-05-19 12:43:19'),
-(9, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '1', NULL, '2022-05-19 12:43:29', '2022-05-19 12:43:29'),
-(10, 1, 'sdfsdfasdfsdfsdfsfsfsfsdf?', 'sdfgdfghd d g dgdfg dfgdsfgdfg sdfgsdfgdfgdgsdf sdfgsdfggfdgdfgdfgdg dfgdfgsdgdsgd sdfgdfgsdg\r\nsdfgdfghd d g dgdfg dfgdsfgdfg sdfgsdfgdfgdgsdf sdfgsdfggfdgdfgdfgdg dfgdfgsdgdsgd sdfgdfgsdg\r\nsdfgdfghd d g dgdfg dfgdsfgdfg sdfgsdfgdfgdgsdf sdfgsdfggfdgdfgdfgdg dfgdfgsdgdsgd sdfgdfgsdg sdfgdfghd d g dgdfg dfgdsfgdfg sdfgsdfgdfgdgsdf sdfgsdfggfdgdfgdfgdg dfgdfgsdgdsgd sdfgdfgsdg', '1', '2024-08-02 19:35:20', '2024-06-27 17:30:32', '2024-08-02 14:35:20'),
-(11, 1, 'hkhjkhjkhjkhjk', 'hgjkhjkghjkghjkhgjk', '1', '2024-08-02 19:35:16', '2024-06-27 17:32:12', '2024-08-02 14:35:16');
+(9, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '1', NULL, '2022-05-19 12:43:29', '2022-05-19 12:43:29');
 
 -- --------------------------------------------------------
 
@@ -1211,14 +1194,9 @@ INSERT INTO `page_settings` (`id`, `parent_slug`, `key`, `value`, `deleted_at`, 
 (3, 'header', 'form_blog', NULL, NULL, '2022-06-03 18:31:33', '2022-06-03 18:31:33'),
 (4, 'header', 'header_favicon', '08072025190128.png', NULL, '2022-06-03 18:31:33', '2025-07-08 14:01:28'),
 (5, 'header', 'header_logo', '08072025173024.png', NULL, '2022-06-03 18:31:33', '2025-07-08 12:30:24'),
-(6, 'footer', '_token', 't0rWNa2NLJbDNkVohaR4P2qcfBlBwjKXya82ug7V', NULL, '2022-06-03 18:41:30', '2025-07-18 13:09:06'),
+(6, 'footer', '_token', 'X03tHX7o9Ur4QCUnh1pZiagbLSoUUUPgqwMf4SF4', NULL, '2022-06-03 18:41:30', '2025-07-23 15:44:32'),
 (7, 'footer', 'parent_slug', 'footer', NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
 (8, 'footer', 'footer_description', '<p>Fitnex was born from a passion for fitness and the frustration of navigating a fragmented wellness industry. We\'re building an inclusive ecosystem that connects clients with expert coaches, streamlining the journey to better health, performance, and confidence.</p>', NULL, '2022-06-03 18:41:30', '2025-07-02 13:21:17'),
-(9, 'footer', 'footer_whatsapp', 'https://web.whatsapp.com/', NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
-(10, 'footer', 'footer_facebook', 'https://facebook.com', NULL, '2022-06-03 18:41:30', '2024-12-20 16:39:04'),
-(11, 'footer', 'footer_youtube', 'https://www.youtube.com/', NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
-(12, 'footer', 'footer_instagram', 'https://www.instagram.com/', NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
-(13, 'footer', 'footer_copy_right_right_side', NULL, NULL, '2022-06-03 18:41:30', '2025-07-18 13:09:06'),
 (14, 'footer', 'footer_copy_right_left_side', '@ Copyright 2025, All Rights Reserved', NULL, '2022-06-03 18:41:30', '2025-02-06 13:30:36'),
 (15, 'footer', 'form_blog', NULL, NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
 (16, 'footer', 'footer_image', '08072025173407.png', NULL, '2022-06-03 18:41:30', '2025-07-08 12:34:07'),
@@ -1255,8 +1233,6 @@ INSERT INTO `page_settings` (`id`, `parent_slug`, `key`, `value`, `deleted_at`, 
 (109, 'home', 'location_keyword', 'CLICK THE PIN TO FIND', NULL, '2022-06-14 18:23:16', '2022-06-14 18:23:16'),
 (110, 'home', 'location_description', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', NULL, '2022-06-14 18:23:16', '2022-06-14 18:23:16'),
 (111, 'home', 'form_home_blog', NULL, NULL, '2022-06-14 18:23:16', '2022-06-14 18:23:16'),
-(112, 'footer', 'footer_twitter', 'https://twitter.com/', NULL, '2022-07-29 17:06:58', '2022-07-29 17:06:58'),
-(113, 'footer', 'footer_linkedin', 'https://www.linkedin.com/', NULL, '2022-07-29 17:06:58', '2022-07-29 17:06:58'),
 (114, 'header', 'header_call_us_now', NULL, NULL, '2022-07-29 17:27:09', '2025-07-02 13:18:40'),
 (115, 'header', 'header_email', NULL, NULL, '2022-07-29 17:27:09', '2024-12-12 14:44:56'),
 (116, 'footer', 'footer_address', '123 Main St, Anytown, USA', NULL, '2022-07-29 17:58:12', '2025-07-02 13:21:17'),
@@ -1290,14 +1266,14 @@ INSERT INTO `page_settings` (`id`, `parent_slug`, `key`, `value`, `deleted_at`, 
 (144, 'about-us', 'heading_two', 'WELCOME TO RENOVAEN', NULL, '2024-06-27 14:20:29', '2024-08-16 13:03:33'),
 (145, 'about-us', 'description_two', '<p>We created this website to make your life easier, more affordable, and more trustworthy. Whether you need to fix problems in your home, business, car, or truck, we have everything you need. We even offer home warranty services with some free services included coming soon. Plus, if you&rsquo;re planning a remodeling project, you can apply for a remodeling loan to help you save money.</p>\r\n<p>At Renovaen, we also provide a taxi service that&rsquo;s cheaper and safer than other companies. And if you&rsquo;re a truck driver, we can help you find loads and even provide repair services if your truck breaks down. We&rsquo;ve figured out a unique way to make our website the number one go-to for contractors and mechanics. No more spending hours on the phone trying to find the right company with the best prices and experience. With Renovaen, all you have to do is tell us what you need, and we&rsquo;ll find the right, trusted, cheapest, and most experienced professionals for you. We&rsquo;ll send your request to our contractors and mechanics, who will make offers for you to choose from. You&rsquo;ll be able to read about each company&rsquo;s offers and choose the one that works best for you. We even conduct background checks on all the contractors and mechanics working with us, so you can rest assured that you&rsquo;re in good hands. Thank you for choosing Renovaen. We&rsquo;re committed to providing you with the best service possible, and we look forward to helping you with all your needs.</p>', NULL, '2024-06-27 14:20:29', '2024-08-16 13:03:33'),
 (146, 'about-us', 'title', 'About Us', NULL, '2024-06-27 14:28:52', '2024-06-27 14:28:52'),
-(147, 'contact-us', '_token', 'kL21qnAXS4sVUGw6sKDqPyyQI6DO14Hvs2nkfr1X', NULL, '2024-06-27 14:59:53', '2025-07-04 17:42:51'),
+(147, 'contact-us', '_token', 'X03tHX7o9Ur4QCUnh1pZiagbLSoUUUPgqwMf4SF4', NULL, '2024-06-27 14:59:53', '2025-07-23 13:47:32'),
 (148, 'contact-us', 'parent_slug', 'contact-us', NULL, '2024-06-27 14:59:53', '2024-06-27 14:59:53'),
-(149, 'contact-us', 'contact_address', NULL, NULL, '2024-06-27 14:59:53', '2025-07-04 17:42:52'),
-(150, 'contact-us', 'contact_email', NULL, NULL, '2024-06-27 14:59:53', '2025-07-04 17:42:52'),
-(151, 'contact-us', 'contact_phone', NULL, NULL, '2024-06-27 14:59:53', '2025-07-04 17:42:52'),
+(149, 'contact-us', 'contact_address', '123 Main St, Anytown, USA', NULL, '2024-06-27 14:59:53', '2025-07-23 13:51:40'),
+(150, 'contact-us', 'contact_email', 'Info@fitnex.com', NULL, '2024-06-27 14:59:53', '2025-07-23 13:47:32'),
+(151, 'contact-us', 'contact_phone', '5574475582', NULL, '2024-06-27 14:59:53', '2025-07-23 13:47:32'),
 (152, 'contact-us', 'form_contact', NULL, NULL, '2024-06-27 14:59:53', '2024-06-27 14:59:53'),
-(153, 'contact-us', 'form_heading', NULL, NULL, '2024-12-19 14:37:23', '2025-07-04 17:42:52'),
-(154, 'contact-us', 'contact_heading', NULL, NULL, '2024-12-19 14:37:23', '2025-07-04 17:42:51'),
+(153, 'contact-us', 'form_heading', 'Get In Touch', NULL, '2024-12-19 14:37:23', '2025-07-23 13:51:24'),
+(154, 'contact-us', 'contact_heading', 'SOCIAL <span>MEDIA</span>', NULL, '2024-12-19 14:37:23', '2025-07-23 13:51:24'),
 (155, 'contact-us', 'contact_map', NULL, NULL, '2024-12-19 14:37:23', '2025-04-15 11:28:31'),
 (156, 'home-about-us', '_token', 'kL21qnAXS4sVUGw6sKDqPyyQI6DO14Hvs2nkfr1X', NULL, '2024-12-19 17:46:15', '2025-07-04 16:55:04'),
 (157, 'home-about-us', 'parent_slug', 'home-about-us', NULL, '2024-12-19 17:46:15', '2024-12-19 17:46:15'),
@@ -1319,11 +1295,6 @@ INSERT INTO `page_settings` (`id`, `parent_slug`, `key`, `value`, `deleted_at`, 
 (173, 'about-us', 'about_us_image', '16072025161924.jpg', NULL, '2024-12-20 11:32:21', '2025-07-16 11:19:24'),
 (174, 'about-us', 'why_image', '16072025183947.jpg', NULL, '2024-12-20 11:32:21', '2025-07-16 13:39:47'),
 (175, 'footer', 'footer_number', NULL, NULL, '2024-12-20 16:07:33', '2025-07-02 13:21:17'),
-(176, 'footer', 'footer_email', 'youremailhere@gmail.com', NULL, '2024-12-20 16:07:33', '2025-07-02 13:21:17'),
-(177, 'footer', 'footer_book', 'https://facebook.com', NULL, '2024-12-20 16:43:09', '2024-12-20 16:43:09'),
-(178, 'footer', 'footer_facebok', 'https://facebook.com', NULL, '2024-12-20 16:46:34', '2025-07-04 18:39:22'),
-(179, 'footer', 'footer_twiter', 'https://twitter.com/', NULL, '2024-12-20 16:46:34', '2025-07-04 18:39:23'),
-(180, 'footer', 'footer_linkdin', 'https://www.linkedin.com/', NULL, '2024-12-20 16:46:34', '2025-07-04 18:39:23'),
 (181, 'contact-us', 'contact_image', '04072025224252.png', NULL, '2025-04-15 11:42:25', '2025-07-04 17:42:52'),
 (182, 'home-about-us', 'about_status', '1', NULL, '2025-04-15 12:57:34', '2025-07-04 17:03:13'),
 (183, 'home-about-us', 'home_about_description', '<p>Fitnex was born from a passion for fitness and the frustration of navigating a fragmented wellness industry. We\'re building an inclusive ecosystem that connects clients with expert coaches, streamlining the journey to better health, performance, and confidence.</p>', NULL, '2025-04-15 13:06:07', '2025-07-04 16:56:25'),
@@ -1356,7 +1327,15 @@ INSERT INTO `page_settings` (`id`, `parent_slug`, `key`, `value`, `deleted_at`, 
 (210, 'careers', 'to_apply_description', '<p>Please send resume and cover letter to <a href=\"mailto:careers@solunesco.com\">careers@solunesco.com</a>.</p>', NULL, '2025-06-12 12:59:07', '2025-06-12 13:41:39'),
 (211, 'careers', 'careers_status', '1', NULL, '2025-06-12 12:59:07', '2025-06-12 12:59:07'),
 (212, 'careers', 'form_about', NULL, NULL, '2025-06-12 12:59:08', '2025-06-12 12:59:08'),
-(213, 'about-us', 'about_banner', '16072025161924.webp', NULL, '2025-07-16 11:03:04', '2025-07-16 11:19:24');
+(213, 'about-us', 'about_banner', '16072025161924.webp', NULL, '2025-07-16 11:03:04', '2025-07-16 11:19:24'),
+(217, 'contact-us', 'contact_facebok', 'https://www.facebook.com/', NULL, '2025-07-23 15:40:58', '2025-07-23 15:40:58'),
+(218, 'contact-us', 'contact_twiter', 'https://x.com/', NULL, '2025-07-23 15:40:58', '2025-07-23 15:40:58'),
+(219, 'contact-us', 'contact_linkdin', 'https://www.linkedin.com/', NULL, '2025-07-23 15:40:58', '2025-07-23 15:40:58'),
+(220, 'footer', 'footer_instagram', 'https://www.instagram.com/', NULL, '2025-07-23 15:58:49', '2025-07-23 15:58:49'),
+(221, 'footer', 'footer_linkdin', 'https://www.linkedin.com/', NULL, '2025-07-23 15:58:49', '2025-07-23 15:58:49'),
+(222, 'footer', 'footer_youtube', 'https://www.youtube.com/', NULL, '2025-07-23 15:58:49', '2025-07-23 15:58:49'),
+(223, 'footer', 'footer_twiter', 'https://x.com/', NULL, '2025-07-23 15:58:49', '2025-07-23 15:59:39'),
+(224, 'footer', 'footer_email', 'youremailhere@gmail.com', NULL, '2025-07-23 15:58:49', '2025-07-23 15:58:49');
 
 -- --------------------------------------------------------
 
@@ -3839,7 +3818,7 @@ ALTER TABLE `appointments`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -3863,13 +3842,13 @@ ALTER TABLE `client_contacts`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `coupons`
@@ -3959,7 +3938,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `page_settings`
 --
 ALTER TABLE `page_settings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=214;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=225;
 
 --
 -- AUTO_INCREMENT for table `payments`
