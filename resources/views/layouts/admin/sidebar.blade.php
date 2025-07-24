@@ -23,10 +23,10 @@
                 </li>
             @endcan --}}
 
-            <li class="treeview {{ request()->is('page') || request()->is('page/*') || request()->is('page_setting/*') || request()->is('homeslider') || request()->is('homeslider/create') || request()->is('homeslider/*/edit') || request()->is('banner') || request()->is('banner/create') || request()->is('banner/*/edit') || request()->is('package') || request()->is('package/create') || request()->is('package/*/edit') || request()->is('member_directory') || request()->is('member_directory/create') || request()->is('member_directory/*/edit') || request()->is('member_directory/*') || request()->is('meet_the_team') || request()->is('meet_the_team/create') || request()->is('meet_the_team/*/edit') || request()->is('event') || request()->is('event/create') || request()->is('event/*/edit') || request()->is('event/*') ? 'active' : '' }}"
+            <li class="treeview {{ request()->is('page') || request()->is('page/*') || request()->is('page_setting/*') || request()->is('package') || request()->is('package/create') || request()->is('package/*/edit') || request()->is('event') || request()->is('event/create') || request()->is('event/*/edit') || request()->is('event/*') ? 'active' : '' }}"
                 style="height: auto;">
                 <a href="#"
-                    class="{{ request()->is('page') || request()->is('page/*') || request()->is('page_setting/*') || request()->is('homeslider') || request()->is('homeslider/create') || request()->is('homeslider/*/edit') || request()->is('banner') || request()->is('banner/create') || request()->is('banner/*/edit') || request()->is('package') || request()->is('package/create') || request()->is('package/*/edit') || request()->is('member_directory') || request()->is('member_directory/create') || request()->is('member_directory/*/edit') || request()->is('member_directory/*') || request()->is('meet_the_team') || request()->is('meet_the_team/create') || request()->is('meet_the_team/*/edit') || request()->is('event') || request()->is('event/create') || request()->is('event/*/edit') || request()->is('event/*') ? 'active' : '' }}">
+                    class="{{ request()->is('page') || request()->is('page/*') || request()->is('page_setting/*') || request()->is('package') || request()->is('package/create') || request()->is('package/*/edit') || request()->is('event') || request()->is('event/create') || request()->is('event/*/edit') || request()->is('event/*') ? 'active' : '' }}">
                     <i class="fa fa-files-o"></i>
                     <span>Website Dashboard</span>
                     <span class="pull-right-container">
@@ -34,9 +34,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu"
-                    style="display: {{ request()->is('page') || request()->is('page/*') || request()->is('page_setting/*') || request()->is('homeslider') || request()->is('homeslider/create') || request()->is('homeslider/*/edit') || request()->is('banner') || request()->is('banner/create') || request()->is('banner/*/edit') || request()->is('package') || request()->is('package/create') || request()->is('package/*/edit') || request()->is('member_directory') || request()->is('member_directory/create') || request()->is('member_directory/*/edit') || request()->is('member_directory/*') || request()->is('meet_the_team') || request()->is('meet_the_team/create') || request()->is('meet_the_team/*/edit') || request()->is('event') || request()->is('event/create') || request()->is('event/*/edit') || request()->is('event/*') ? 'block' : 'none' }};">
-
-
+                    style="display: {{ request()->is('page') || request()->is('page/*') || request()->is('page_setting/*') || request()->is('package') || request()->is('package/create') || request()->is('package/*/edit') || request()->is('event') || request()->is('event/create') || request()->is('event/*/edit') || request()->is('event/*') ? 'block' : 'none' }};">
                     @can('page-list')
                         <li class="treeview mt-2">
                             <a href="{{ route('page.index') }}"
@@ -47,22 +45,6 @@
                     @endcan
 
 
-                    {{--  @can('banner-list')
-                        <li class="treeview mt-2">
-                            <a href="{{ route('banner.index') }}" class="{{ request()->is('banner') || request()->is('banner/create') || request()->is('banner/*/edit') ? 'active' : '' }}">
-                                <i class="fa fa-picture-o"></i> <span>All Banners</span>
-                            </a>
-                        </li>
-                    @endcan
-
-                    @can('homeslider-list')
-                        <li class="treeview mt-2">
-                            <a href="{{ route('homeslider.index') }}" class="{{ request()->is('homeslider') || request()->is('homeslider/create') || request()->is('homeslider/*/edit') ? 'active' : '' }}">
-                                <i class="fa fa-tasks"></i> <span>Home Banner Slider</span>
-                            </a>
-                        </li>
-                    @endcan --}}
-
                     {{-- @can('event-list')
                         <li class="treeview mt-2">
                             <a href="{{ route('event.index') }}" class="{{ request()->is('event') || request()->is('event/create') || request()->is('event/*/edit') || request()->is('event/*') ? 'active' : '' }}">
@@ -71,53 +53,24 @@
                         </li>
                     @endcan
                     
-                    @can('meet_the_team-list')
-                        <li class="treeview mt-2">
-                            <a href="{{ route('meet_the_team.index') }}" class="{{ request()->is('meet_the_team') || request()->is('meet_the_team/create') || request()->is('meet_the_team/*/edit') ? 'active' : '' }}">
-                                <i class="fa fa-users"></i> <span>Meet The Team</span>
-                            </a>
-                        </li>
-                    @endcan --}}
-
-
-
+                   
                     {{-- @can('package-list')
                         <li class="treeview mt-2">
                             <a href="{{ route('package.index') }}" class="{{ request()->is('package') || request()->is('package/create') || request()->is('package/*/edit') ? 'active' : '' }}">
                                 <i class="fa fa-gift"></i> <span>All Packages</span>
                             </a>
                         </li>
+                    @endcan 
+                    
+                    @can('blog-list')
+                        <li class="treeview">
+                            <a href="{{ route('blog.index') }}" class="{{ request()->is('blog') || request()->is('blog/create') || request()->is('blog/*/edit') ? 'active' : '' }}">
+                                <i class="fa fa-tasks"></i> <span>Blogs</span>
+                            </a>
+                        </li>
                     @endcan --}}
 
-                    {{-- <li class="treeview mt-2 {{ (request()->is('services') || request()->is('services/create') || request()->is('services/*/edit') || request()->is('member_directory') || request()->is('member_directory/create') || request()->is('member_directory/*/edit') || request()->is('member_directory/*')) ? 'active' : '' }}" style="height: auto;">
-                        <a href="#" class="{{ (request()->is('services') || request()->is('services/create') || request()->is('services/*/edit') || request()->is('member_directory') || request()->is('member_directory/create') || request()->is('member_directory/*/edit') || request()->is('member_directory/*')) ? 'active' : '' }}">
-                            <i class="fa fa-files-o"></i>
-                            <span>Member Directory</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-        
-                        <ul class="treeview-menu" style="display: {{ (request()->is('member_directory') || request()->is('member_directory/create') || request()->is('member_directory/*/edit') || request()->is('member_directory/*') || request()->is('services') || request()->is('services/create') || request()->is('services/*/edit')) ? 'block' : 'none' }};">
-                        
-                            @can('services-list')
-                            <li class="treeview mt-2" >
-                                <a href="{{ route('services.index') }}" class="{{ request()->is('services') || request()->is('services/create') || request()->is('services/*/edit') ? 'active' : '' }}">
-                                    <i class="fa fa-code-fork"></i> <span>All Services</span>
-                                </a>
-                            </li>
-                            @endcan
-                           
-                            @can('member_directory-list')
-                            <li class="treeview mt-2">
-                                <a href="{{ route('member_directory.index') }}" class="{{ request()->is('member_directory') || request()->is('member_directory/create') || request()->is('member_directory/*/edit') || request()->is('member_directory/*') ? 'active' : '' }}">
-                                    <i class="fa fa-sitemap"></i> <span>View Directory</span>
-                                </a>
-                            </li>
-                            @endcan
-                        </ul>
-                    </li> --}}
-
+                    
                 </ul>
             </li>
             @can('homeslider-list')
@@ -493,13 +446,7 @@
             </li>
             @endcan 
 
-            @can('blog-list')
-            <li class="treeview">
-                <a href="{{ route('blog.index') }}" class="{{ request()->is('blog') || request()->is('blog/create') || request()->is('blog/*/edit') ? 'active' : '' }}">
-            <i class="fa fa-tasks"></i> <span>Blogs</span>
-            </a>
-            </li>
-            @endcan 
+            
             @can('agents-list')
             <li class="treeview">
                 <a href="{{ route('agents.index') }}" class="{{ request()->is('agents') || request()->is('agents/create') || request()->is('agents/*/edit') ? 'active' : '' }}">

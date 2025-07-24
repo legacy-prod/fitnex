@@ -45,12 +45,12 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
 							<label for="" class="col-sm-2 control-label">Call Us Now:</label>
 							<div class="col-sm-6">
 								<input type="text" name="header_call_us_now" class="form-control" value="{{ isset($page_data['header_call_us_now'])?$page_data['header_call_us_now']:'' }}" placeholder="Enter Call Us Now">
 							</div>
-						</div>
+						</div> --}}
                         {{-- <div class="form-group">
 							<label for="" class="col-sm-2 control-label">Email:</label>
 							<div class="col-sm-9">

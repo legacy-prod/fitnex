@@ -14,7 +14,7 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 
-                @php
+                {{-- @php
                     $notifications = Auth::user()->unreadNotifications;
                 @endphp
 
@@ -26,23 +26,22 @@
                         @endif
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right notifications-dropdown">
-                        {{-- Add CSS for scrolling --}}
+                    <div class="dropdown-menu dropdown-menu-right notifications-dropdown"> 
                         <style>
                             .notifications-dropdown {
-                                max-height: 354px; /* Adjust as needed to show approx 6 items */
+                                max-height: 354px;  
                                 overflow-y: auto;
                             }
                             .notification-item {
-                                /* Optional: Add specific height or padding if items have variable height */
-                                padding: 10px 15px; /* Example padding */
-                                border-bottom: 1px solid #eee; /* Example separator */
+                                
+                                padding: 10px 15px;  
+                                border-bottom: 1px solid #eee; 
                             }
                             .dropdown-header {
                                 position: sticky;
                                 top: 0;
-                                background-color: #fff; /* Ensure header is visible when scrolling */
-                                z-index: 1; /* Keep header above scrolling items */
+                                background-color: #fff;  
+                                z-index: 1;  
                                 padding: 10px 15px;
                                 border-bottom: 1px solid #eee;
                             }
@@ -81,7 +80,7 @@
                             <span class="dropdown-item notification-item">No new notifications</span>
                         @endforelse
                     </div>
-                </li>
+                </li> --}}
 
 
                 <li>
