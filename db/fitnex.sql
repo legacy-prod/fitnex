@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2025 at 12:56 AM
+-- Generation Time: Jul 29, 2025 at 12:35 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -171,7 +171,66 @@ INSERT INTO `banners` (`id`, `name`, `slug`, `short_description`, `description`,
 (5, 'Book Your Session', 'appointments.create', NULL, NULL, '25-07-17-221630.webp', '1', NULL, '2025-07-17 17:16:30', '2025-07-17 17:16:30'),
 (6, 'Resigtration', 'registration', NULL, NULL, '25-07-18-164614.webp', '1', NULL, '2025-07-18 11:46:14', '2025-07-18 11:46:14'),
 (7, 'Login Your Account', 'login', NULL, NULL, '25-07-18-174534.webp', '1', NULL, '2025-07-18 12:45:34', '2025-07-18 12:45:34'),
-(8, 'Contact Us', 'contact-us', NULL, NULL, '25-07-23-164952.webp', '1', NULL, '2025-07-23 11:49:53', '2025-07-23 11:49:53');
+(8, 'Contact Us', 'contact-us', NULL, NULL, '25-07-23-164952.webp', '1', NULL, '2025-07-23 11:49:53', '2025-07-23 11:49:53'),
+(9, 'Blogs', 'blogs', NULL, NULL, '25-07-25-224823.webp', '1', NULL, '2025-07-25 17:48:23', '2025-07-25 17:48:23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blogs`
+--
+
+CREATE TABLE `blogs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_by` bigint(20) NOT NULL,
+  `category_slug` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL,
+  `post` varchar(255) DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `deleted_at` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `blogs`
+--
+
+INSERT INTO `blogs` (`id`, `created_by`, `category_slug`, `title`, `slug`, `description`, `post`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 'events', '5 amazing benefits of kickboxing for women', '5-amazing-benefits-of-kickboxing-for-women', '<div>\r\n<h2>What is Lorem Ipsum?</h2>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n</div>\r\n<div>\r\n<h2>Why do we use it?</h2>\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n</div>\r\n<p>&nbsp;</p>\r\n<div>\r\n<h2>Where does it come from?</h2>\r\n<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.<br /><br /><br /></p>\r\n<div>\r\n<h2>What is Lorem Ipsum?</h2>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n</div>\r\n<div>\r\n<h2>Why do we use it?</h2>\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n</div>\r\n<p>&nbsp;</p>\r\n<div>\r\n<h2>Where does it come from?</h2>\r\n<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.<br /><br /><br /></p>\r\n<div>\r\n<h2>What is Lorem Ipsum?</h2>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n</div>\r\n<div>\r\n<h2>Why do we use it?</h2>\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n</div>\r\n<p>&nbsp;</p>\r\n<div>\r\n<h2>Where does it come from?</h2>\r\n<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.<br /><br /><br /></p>\r\n<div>\r\n<h2>What is Lorem Ipsum?</h2>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n</div>\r\n<div>\r\n<h2>Why do we use it?</h2>\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n</div>\r\n<p>&nbsp;</p>\r\n<div>\r\n<h2>Where does it come from?</h2>\r\n<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.<br /><br /><br /></p>\r\n<div>\r\n<h2>What is Lorem Ipsum?</h2>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n</div>\r\n<div>\r\n<h2>Why do we use it?</h2>\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n</div>\r\n<p>&nbsp;</p>\r\n<div>\r\n<h2>Where does it come from?</h2>\r\n<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.<br /><br /><br /></p>\r\n<div>\r\n<h2>What is Lorem Ipsum?</h2>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n</div>\r\n<div>\r\n<h2>Why do we use it?</h2>\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n</div>\r\n<p>&nbsp;</p>\r\n<div>\r\n<h2>Where does it come from?</h2>\r\n<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>', '28-07-2025-222342.jpg', 1, NULL, '2025-07-28 15:41:17', '2025-07-28 17:23:42'),
+(2, 1, 'workouts', 'This is the workout blog', 'this-is-the-workout-blog', '<h2>What is Lorem Ipsum?</h2>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&nbsp;<br /><br /></p>\r\n<h2>What is Lorem Ipsum?</h2>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br /><br /></p>\r\n<h2>What is Lorem Ipsum?</h2>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br /><br /></p>\r\n<h2>What is Lorem Ipsum?</h2>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', '28-07-2025-214557.webp', 1, NULL, '2025-07-28 16:45:57', '2025-07-28 16:45:57'),
+(3, 1, 'lifestyle', 'This is the Lifestyle blog', 'this-is-the-lifestyle-blog', '<h2>What is Lorem Ipsum?</h2>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br /><br /></p>\r\n<h2>What is Lorem Ipsum?</h2>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br /><br /></p>\r\n<h2>What is Lorem Ipsum?</h2>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br /><br /></p>\r\n<h2>What is Lorem Ipsum?</h2>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br /><br /></p>\r\n<h2>What is Lorem Ipsum?</h2>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', '28-07-2025-214650.jpg', 1, NULL, '2025-07-28 16:46:50', '2025-07-28 17:22:12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blog_categories`
+--
+
+CREATE TABLE `blog_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_by` bigint(20) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `deleted_at` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `blog_categories`
+--
+
+INSERT INTO `blog_categories` (`id`, `created_by`, `name`, `slug`, `description`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(2, 1, 'Bodybuilding', 'bodybuilding', NULL, 1, NULL, '2025-07-25 18:40:06', '2025-07-28 13:40:32'),
+(3, 1, 'Workouts', 'workouts', NULL, 1, NULL, '2025-07-28 13:38:16', '2025-07-28 13:38:16'),
+(4, 1, 'Lifestyle', 'lifestyle', NULL, 1, NULL, '2025-07-28 13:38:36', '2025-07-28 13:38:36'),
+(5, 1, 'Motivation', 'motivation', NULL, 1, NULL, '2025-07-28 13:38:48', '2025-07-28 13:38:48'),
+(6, 1, 'Events', 'events', NULL, 1, NULL, '2025-07-28 13:39:00', '2025-07-28 13:39:00');
 
 -- --------------------------------------------------------
 
@@ -469,7 +528,8 @@ CREATE TABLE `events` (
 
 INSERT INTO `events` (`id`, `created_by`, `title`, `host`, `date`, `time`, `end_time`, `location`, `location_link`, `registration_link`, `status`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Prince Edward County Networking and Membership Drive', 'Hosted by Dominion, Strata, SCVBA, and the Farmville Chamber', '2025-06-12', '17:30:00', '19:30:00', 'Catbird Rooftop Terrace, Farmville, VA', 'https://www.hotelweyanoke.com/dining/catbird-rooftop-terrace', 'https://www.eventbrite.com/e/networking-and-membership-drive-tickets-1388453595079', '0', '2025-06-18 18:00:19', '2025-06-18 18:15:35'),
-(2, 1, 'Prince Edward County Networking and Membership Drive', 'Hosted by Dominion, Strata, SCVBA, and the Farmville Chamber', '2025-06-13', '17:30:00', '19:30:00', 'Catbird Rooftop Terrace, Farmville, VA', 'https://www.hotelweyanoke.com/dining/catbird-rooftop-terrace', 'https://www.eventbrite.com/e/networking-and-membership-drive-tickets-1388453595079', '1', '2025-06-18 18:13:53', '2025-06-18 18:13:53');
+(2, 1, 'Prince Edward County Networking and Membership Drive', 'Hosted by Dominion, Strata, SCVBA, and the Farmville Chamber', '2025-06-13', '17:30:00', '19:30:00', 'Catbird Rooftop Terrace, Farmville, VA', 'https://www.hotelweyanoke.com/dining/catbird-rooftop-terrace', 'https://www.eventbrite.com/e/networking-and-membership-drive-tickets-1388453595079', '1', '2025-06-18 18:13:53', '2025-06-18 18:13:53'),
+(3, 1, '21-May-1979', '15-Jul-2012', '2019-12-30', '11:58:00', '05:59:00', '22-Jul-2025', 'https://www.kabuwexubon.co', '11-Aug-2005', '1', '2025-07-25 18:44:12', '2025-07-25 18:44:12');
 
 -- --------------------------------------------------------
 
@@ -771,7 +831,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2022_04_06_183800_create_permission_tables', 1),
 (13, '2022_04_19_205847_create_vehicles_table', 6),
 (14, '2022_03_09_150353_create_categories_table', 7),
-(15, '2022_03_09_150337_create_blogs_table', 8),
 (18, '2022_04_25_174651_create_r_v_s_table', 10),
 (19, '2022_04_25_211456_create_virtual_tours_table', 11),
 (23, '2022_04_27_183505_create_about_us_table', 13),
@@ -781,7 +840,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (27, '2022_05_04_171218_create_news_letters_table', 17),
 (29, '2022_05_09_174141_create_cetagories_table', 19),
 (32, '2022_03_09_150353_create_blogcategories_table', 21),
-(34, '2022_05_09_190227_blog_categories', 22),
 (36, '2022_04_26_181343_create_galleries_table', 24),
 (40, '2022_05_11_213649_create_deals_table', 25),
 (45, '2022_03_14_084656_create_pages_table', 30),
@@ -839,7 +897,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (165, '2022_05_09_174141_create_categories_table', 102),
 (167, '2022_05_18_190058_create_contact_us_table', 103),
 (169, '2025_07_01_182412_create_trainers_table', 104),
-(170, '2022_05_18_203240_create_appointments_table', 105);
+(170, '2022_05_18_203240_create_appointments_table', 105),
+(171, '2022_03_09_150337_create_blogs_table', 106),
+(172, '2022_05_09_190227_blog_categories', 107);
 
 -- --------------------------------------------------------
 
@@ -1677,10 +1737,6 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `permission`, `deleted_at
 (18, 'blog-create', 'web', 'create', NULL, '2022-04-22 14:33:20', '2022-04-22 14:33:20'),
 (19, 'blog-edit', 'web', 'edit', NULL, '2022-04-22 14:33:20', '2022-04-22 14:33:20'),
 (20, 'blog-delete', 'web', 'delete', NULL, '2022-04-22 14:33:20', '2022-04-22 14:33:20'),
-(21, 'blog category-list', 'web', 'list', NULL, '2022-04-22 14:33:37', '2022-04-22 14:33:37'),
-(22, 'blog category-create', 'web', 'create', NULL, '2022-04-22 14:33:37', '2022-04-22 14:33:37'),
-(23, 'blog category-edit', 'web', 'edit', NULL, '2022-04-22 14:33:37', '2022-04-22 14:33:37'),
-(24, 'blog category-delete', 'web', 'delete', NULL, '2022-04-22 14:33:37', '2022-04-22 14:33:37'),
 (25, 'testimonial-list', 'web', 'list', NULL, '2022-04-22 19:35:59', '2022-04-22 19:35:59'),
 (26, 'testimonial-create', 'web', 'create', NULL, '2022-04-22 19:35:59', '2022-04-22 19:35:59'),
 (27, 'testimonial-edit', 'web', 'edit', NULL, '2022-04-22 19:35:59', '2022-04-22 19:35:59'),
@@ -1824,7 +1880,11 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `permission`, `deleted_at
 (278, 'trainer-list', 'web', 'list', NULL, '2025-07-02 13:04:07', '2025-07-02 13:04:07'),
 (279, 'trainer-create', 'web', 'create', NULL, '2025-07-02 13:04:07', '2025-07-02 13:04:07'),
 (280, 'trainer-edit', 'web', 'edit', NULL, '2025-07-02 13:04:07', '2025-07-02 13:04:07'),
-(281, 'trainer-delete', 'web', 'delete', NULL, '2025-07-02 13:04:07', '2025-07-02 13:04:07');
+(281, 'trainer-delete', 'web', 'delete', NULL, '2025-07-02 13:04:07', '2025-07-02 13:04:07'),
+(282, 'blog_category-list', 'web', 'list', NULL, '2025-07-25 18:22:35', '2025-07-25 18:22:35'),
+(283, 'blog_category-create', 'web', 'create', NULL, '2025-07-25 18:22:35', '2025-07-25 18:22:35'),
+(284, 'blog_category-edit', 'web', 'edit', NULL, '2025-07-25 18:22:35', '2025-07-25 18:22:35'),
+(285, 'blog_category-delete', 'web', 'delete', NULL, '2025-07-25 18:22:35', '2025-07-25 18:22:35');
 
 -- --------------------------------------------------------
 
@@ -2001,11 +2061,6 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (18, 1),
 (19, 1),
 (20, 1),
-(21, 1),
-(21, 4),
-(22, 1),
-(23, 1),
-(24, 1),
 (25, 1),
 (26, 1),
 (27, 1),
@@ -2174,7 +2229,11 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (278, 1),
 (279, 1),
 (280, 1),
-(281, 1);
+(281, 1),
+(282, 1),
+(283, 1),
+(284, 1),
+(285, 1);
 
 -- --------------------------------------------------------
 
@@ -3548,6 +3607,18 @@ ALTER TABLE `banners`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `blogs`
+--
+ALTER TABLE `blogs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `blog_categories`
+--
+ALTER TABLE `blog_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -3818,7 +3889,19 @@ ALTER TABLE `appointments`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `blogs`
+--
+ALTER TABLE `blogs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `blog_categories`
+--
+ALTER TABLE `blog_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -3872,7 +3955,7 @@ ALTER TABLE `document_repositories`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -3914,7 +3997,7 @@ ALTER TABLE `member_directories`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
 
 --
 -- AUTO_INCREMENT for table `news_letters`
@@ -3956,7 +4039,7 @@ ALTER TABLE `payment_details`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=282;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=286;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
