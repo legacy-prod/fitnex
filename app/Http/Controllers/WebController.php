@@ -29,8 +29,9 @@ use App\Models\Project;
 use App\Models\PaymentDetail; 
 use Illuminate\Support\Facades\Mail;
 use App\Models\Team;
-use App\Models\Event;
+use App\Models\Blog;
 use App\Models\Trainer; 
+use App\Models\BlogCategory;
 class WebController extends Controller
 {
     public function index()
@@ -283,8 +284,9 @@ class WebController extends Controller
     {
         $banner = Banner::where('slug', request()->route()->getName())->where('status', 1)->first();
         $page_title = 'Blogs | FITNEX';
-        $blogs = Event::where('status', 1)->orderBy('date', 'asc')->get();
-        return view('website.blogs', compact('page_title', 'banner', 'blogs'));
+        $blog_categories = BlogCategory::where('status', 1)->get();
+        $blogs = Blog::where('status', 1)->orderBy('created_at', 'desc')->get();
+        return view('website.blogs', compact('page_title', 'banner', 'blogs', 'blog_categories'));
     }
     /* public function Events()
     {

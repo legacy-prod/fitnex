@@ -76,7 +76,11 @@
                 </div>  
                 <div class="flex items-center justify-between">
                     <p class="text-3xl font-bold font-secondary"><span class="primary-theme">${{ $trainer->price }}</span> <span class="text-base font-normal">/ session</span></p>
-                    <a href="{{ route('appointments.create', ['trainer_id' => $trainer->id]) }}" class="btn primary-btn">Book a Session</a>
+                    {{-- @auth('web') --}}
+                        <a href="{{ route('appointments.create', ['trainer_id' => $trainer->id]) }}" class="btn primary-btn">Book a Session</a>
+                    {{-- @else
+                        <a href="{{ route('login') }}" class="btn primary-btn">Book a Session</a>
+                    @endauth --}}
                 </div>
             </div>
         </div>

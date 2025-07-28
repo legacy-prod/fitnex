@@ -8,7 +8,7 @@
                     <i class="fa fa-laptop"></i> <span>Dashboard</span>
                 </a>
             </li>
-            {{-- @can('role-list')
+            @can('role-list')
                 <li class="treeview">
                     <a href="{{ route('role.index') }}" class="{{ request()->is('role') || request()->is('role/create') || request()->is('role/*/edit') ? 'active' : '' }}">
                         <i class="fa fa-user-plus"></i> <span>Roles</span>
@@ -21,7 +21,7 @@
                         <i class="fa fa-lock"></i> <span>Permissions</span>
                     </a>
                 </li>
-            @endcan --}}
+            @endcan
 
             <li class="treeview {{ request()->is('page') || request()->is('page/*') || request()->is('page_setting/*') || request()->is('package') || request()->is('package/create') || request()->is('package/*/edit') || request()->is('event') || request()->is('event/create') || request()->is('event/*/edit') || request()->is('event/*') ? 'active' : '' }}"
                 style="height: auto;">
@@ -60,15 +60,7 @@
                                 <i class="fa fa-gift"></i> <span>All Packages</span>
                             </a>
                         </li>
-                    @endcan 
-                    
-                    @can('blog-list')
-                        <li class="treeview">
-                            <a href="{{ route('blog.index') }}" class="{{ request()->is('blog') || request()->is('blog/create') || request()->is('blog/*/edit') ? 'active' : '' }}">
-                                <i class="fa fa-tasks"></i> <span>Blogs</span>
-                            </a>
-                        </li>
-                    @endcan --}}
+                    @endcan  --}}
 
                     
                 </ul>
@@ -137,7 +129,36 @@
                         <i class="fa fa-calendar"></i> <span>Appointments</span>
                     </a>
                 </li>
-            @endcan 
+            @endcan  
+
+            <li class="treeview {{ (request()->is('blog_category') || request()->is('blog_category/create') || request()->is('blog_category/*/edit') || request()->is('blog') || request()->is('blog/create') || request()->is('blog/*/edit')) ? 'active' : '' }}" style="height: auto;">
+                <a href="#" class="{{ (request()->is('blog_category') || request()->is('blog_category/create') || request()->is('blog_category/*/edit') || request()->is('blog') || request()->is('blog/create') || request()->is('blog/*/edit')) ? 'active' : '' }}">
+                    <i class="fa fa-files-o"></i>
+                    <span>All Blogs</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+
+                <ul class="treeview-menu" style="display: {{ (request()->is('blog_category') || request()->is('blog_category/create') || request()->is('blog_category/*/edit') || request()->is('blog') || request()->is('blog/create') || request()->is('blog/*/edit')) ? 'block' : 'none' }};">
+                
+                    @can('blog_category-list')
+                    <li class="treeview">
+                        <a href="{{ route('blog_category.index') }}" class="{{ request()->is('blog_category') || request()->is('blog_category/create') || request()->is('blog_category/*/edit') ? 'active' : '' }}">
+                            <i class="fa fa-code-fork"></i> <span>All Blog Categories</span>
+                        </a>
+                    </li>
+                    @endcan
+                   
+                    @can('blog-list')
+                    <li class="treeview">
+                        <a href="{{ route('blog.index') }}" class="{{ request()->is('blog') || request()->is('blog/create') || request()->is('blog/*/edit') ? 'active' : '' }}">
+                            <i class="fa fa-sitemap"></i> <span>Blogs</span>
+                        </a>
+                    </li>
+                    @endcan
+                </ul>
+            </li>
 
 
             {{-- <li class="treeview {{ (request()->is('project_category') || request()->is('project_category/create') || request()->is('project_category/*/edit') || request()->is('projects') || request()->is('projects/create') || request()->is('projects/*/edit') || request()->is('projects/*') || request()->is('jobpost') || request()->is('jobpost/create') || request()->is('jobpost/*/edit') || request()->is('jobcategory') || request()->is('jobcategory/create') || request()->is('jobcategory/*/edit') || request()->is('documents') || request()->is('documents/create') || request()->is('documents/*/edit') || request()->is('documents/*') ) ? 'active' : '' }}" style="height: auto;">

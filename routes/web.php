@@ -32,6 +32,8 @@ use App\Http\Controllers\admin\TrainerController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\admin\BlogCategoryController;
+use App\Http\Controllers\admin\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,6 +97,7 @@ Route::get('get_cities', [TrainerController::class, 'get_cities'])->name('get_ci
 Route::post('appointment', [WebController::class, 'appointment'])->name('appointment');
 Route::get('about-us', [WebController::class, 'AboutUs'])->name('about-us');
 Route::get('benefits', [WebController::class, 'Benefits'])->name('benefits');
+Route::get('blogs', [WebController::class, 'Blogs'])->name('blogs');
 
 Route::get('registration', [WebController::class, 'Registration'])->name('registration');
 Route::get('events', [WebController::class, 'Events'])->name('events');
@@ -208,6 +211,12 @@ Route::group(['middleware' => ['auth']], function () {
  
     //Trainers
     Route::resource('trainer', TrainerController::class);
+
+    //Blog Category
+    Route::resource('blog_category', BlogCategoryController::class);
+
+    //Blogs
+    Route::resource('blog', BlogController::class);
     
     //pages settings
     Route::resource('page', PageController::class);

@@ -5,7 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\BlogCategory;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class BlogCategoryController extends Controller
 {
@@ -16,10 +17,10 @@ class BlogCategoryController extends Controller
      */
     function __construct()
     {
-        $this->middleware('permission:blog category-list|blogcategory-create|blogcategory-edit|blogcategory-delete', ['only' => ['index','store']]);
-        $this->middleware('permission:blog category-create', ['only' => ['create','store']]);
-        $this->middleware('permission:blog category-edit', ['only' => ['edit','update']]);
-        $this->middleware('permission:blog category-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:blog_category-list|blog_category-create|blog_category-edit|blog_category-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:blog_category-create', ['only' => ['create','store']]);
+        $this->middleware('permission:blog_category-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:blog_category-delete', ['only' => ['destroy']]);
     }
     public function index(Request $request)
     {
@@ -37,9 +38,9 @@ class BlogCategoryController extends Controller
             $models = $query->paginate(1);
             return (string) view('admin.blogcategory.search', compact('models'));
         }
-        $page_title = 'All BlogCategories';
+        $page_title = 'All Blog Categories';
         $models = BlogCategory::orderby('id', 'desc')->paginate(10);
-        return View('admin.blogcategory.index', compact("models","page_title"));
+        return view('admin.blogcategory.index', compact("models","page_title"));
     }
 
     /**
@@ -49,8 +50,8 @@ class BlogCategoryController extends Controller
      */
     public function create()
     {
-        $page_title = 'Add BlogCategory';
-        return View('admin.blogcategory.create', compact('page_title'));
+        $page_title = 'Add Blog Category';
+        return view('admin.blogcategory.create', compact('page_title'));
     }
 
     /**
@@ -69,11 +70,11 @@ class BlogCategoryController extends Controller
         $model = new BlogCategory();
         $model->created_by = Auth::user()->id;
         $model->name = $request->name;
-        $model->slug = \Str::slug($request->name);
+        $model->slug = Str::slug($request->name);
         $model->description = $request->description;
         $model->save();
 
-        return redirect()->route('blogcategory.index')->with('message', 'BlogCategory Added Successfully !');
+        return redirect()->route('blog_category.index')->with('message', 'Blog Category Added Successfully !');
     }
 
     /**
@@ -93,11 +94,11 @@ class BlogCategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($slug)
+    public function edit($id)
     {
-        $page_title = 'Edit BlogCategory';
-        $model = BlogCategory::where('slug', $slug)->first();
-        return View('admin.blogcategory.edit', compact("model", "page_title"));
+        $page_title = 'Edit Blog Category';
+        $model = BlogCategory::where('id', $id)->first();
+        return view('admin.blogcategory.edit', compact("model", "page_title"));
     }
 
     /**
@@ -107,21 +108,21 @@ class BlogCategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $slug)
+    public function update(Request $request, $id)
     {
         $validator = $request->validate([
             'name' => 'required|max:100',
             'description' => 'max:250',
         ]);
 
-        $update = BlogCategory::where('slug', $slug)->first();
+        $update = BlogCategory::where('id', $id)->first();
         $update->name = $request->name;
-        $update->slug = \Str::slug($request->name);
+        $update->slug = Str::slug($request->name);
         $update->description = $request->description;
         $update->status = $request->status;
         $update->update();
 
-        return redirect()->route('blogcategory.index')->with('message', 'BlogCategory Updated Successfully !');
+        return redirect()->route('blog_category.index')->with('message', 'Blog Category Updated Successfully !');
     }
 
     /**
@@ -130,9 +131,9 @@ class BlogCategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy($slug)
+    public function destroy($id)
     {
-        $model = BlogCategory::where('slug', $slug)->first();
+        $model = BlogCategory::where('id', $id)->first();
         if ($model) {
             $model->delete();
             return true;

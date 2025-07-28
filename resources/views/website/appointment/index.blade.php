@@ -4,7 +4,7 @@
 @section('content')
 <section class="inner-banner" style="background: url('{{ asset('/assets/website/images/trainer-banner.webp') }}') no-repeat center/cover;">
     <div class="container">
-        <h1 class="relative text-white uppercase font-black text-[50px] leading-[1.1] lg:max-w-[680px] xxl:max-w-[860px]">
+        <h1 class="relative text-white uppercase font-black text-[50px]" data-aos="flip-right" data-aos-easing="linear" data-aos-duration="1500" style="text-align: center; padding: 10%;">
             {{ $page_title }}
         </h1>
     </div>

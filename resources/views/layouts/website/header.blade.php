@@ -17,7 +17,7 @@
                     <li><a href="{{ route('index') }}" class="px-[20px] {{ request()->routeIs('index') ? 'active' : '' }}">Home</a></li>
                     <li><a href="{{ route('about-us') }}" class="px-[20px] {{ request()->routeIs('about-us') ? 'active' : '' }}">About us</a></li>
                     <li><a href="{{ route('trainers') }}" class="px-[20px] {{ request()->routeIs('trainers') ? 'active' : '' }}">Trainers</a></li>
-                    <li><a href="#" class="px-[20px]">Blog</a></li>
+                    <li><a href="{{ route('blogs') }}" class="px-[20px] {{ request()->routeIs('blogs') ? 'active' : '' }}">Blog</a></li>
                     <li><a href="{{ route('contact-us') }}" class="px-[20px] {{ request()->routeIs('contact-us') ? 'active' : '' }}">Contact us</a></li>
                 </ul>
             </nav>
@@ -43,7 +43,7 @@
             <li class="py-[15px]"><a href="{{ route('index') }}" class="text-white {{ request()->routeIs('index') ? 'active' : '' }}">Home</a></li>
             <li class="py-[15px]"><a href="{{ route('about-us') }}" class="text-white {{ request()->routeIs('about-us') ? 'active' : '' }}">About us</a></li>
             <li class="py-[15px]"><a href="{{ route('trainers') }}" class="text-white {{ request()->routeIs('trainers') ? 'active' : '' }}">Trainers</a></li>
-            <li class="py-[15px]"><a href="#" class="text-white">Blog</a></li>
+            <li class="py-[15px]"><a href="{{ route('blogs') }}" class="text-white {{ request()->routeIs('blogs') ? 'active' : '' }}">Blog</a></li>
             <li class="py-[15px]"><a href="{{ route('contact-us') }}" class="text-white {{ request()->routeIs('contact-us') ? 'active' : '' }}">Contact us</a></li>
             <li class="py-[15px]">
                 <a href="#" class="btn primary-btn border border-transparent">Try for FREE</a>

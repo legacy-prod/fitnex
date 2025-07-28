@@ -21,7 +21,7 @@ class CreateBlogsTable extends Migration
             $table->string('slug');
             $table->text('description')->nullable();
             $table->string('post')->nullable();
-            $table->boolean('paid_free');
+            $table->string('paid_free');    
             $table->boolean('status')->default(1);
             $table->string('deleted_at')->nullable();
             $table->timestamps();

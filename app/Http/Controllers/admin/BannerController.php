@@ -131,7 +131,7 @@ class BannerController extends Controller
             'about-us' => 'About Us',
             'trainers' => 'Trainers',
             'trainer.detail' => 'Trainer Detail',
-            'blog' => 'Blog',
+            'blogs' => 'Blogs',
             'contact-us' => 'Contact Us',
             'appointments.create' => 'Appointments',
             'term-of-service' => 'Terms Of Service', 
