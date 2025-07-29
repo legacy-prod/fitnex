@@ -629,7 +629,6 @@ Rounds
 
 .round.round-primary {
   background: #7460ee; }
-
 /*******************
 Labels
 *******************/
@@ -1279,7 +1278,6 @@ Buttons
   .btn-outline-warning.active, .btn-outline-warning:focus {
     -webkit-box-shadow: 0 14px 26px -12px rgba(248, 194, 0, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(248, 194, 0, 0.2);
     box-shadow: 0 14px 26px -12px rgba(248, 194, 0, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(248, 194, 0, 0.2); }
-
 .btn-outline-danger {
   color: #fc4b6c;
   background-color: transparent;
@@ -2564,7 +2562,6 @@ Dashboard3 chart
     border: 1px dashed rgba(120, 130, 140, 0.13); }
   .calendar-events i {
     margin-right: 8px; }
-
 /*============================================================== 
 Dashboard4 chart
  ============================================================== */
@@ -3211,7 +3208,6 @@ Table-Layout
   .full-color-table.full-danger-table tr:hover {
     background-color: #fc4b6c;
     color: #ffffff; }
-
 .full-color-table.full-inverse-table {
   background-color: #f6f6f6; }
   .full-color-table.full-inverse-table thead th {
@@ -3849,7 +3845,6 @@ Progress bar
 @keyframes myanimation {
   from {
     width: 0; } }
-
 /*******************
 Notification page Jquery toaster
 ******************/
@@ -4493,7 +4488,6 @@ ribbons page
 .ribbon-default.ribbon-corner.ribbon-bottom:before {
   border-top-color: transparent;
   border-bottom-color: #263238; }
-
 /*******************
 session ideal timeout page
 ******************/
@@ -5105,7 +5099,6 @@ FAQs Page
     margin-top: 10px; }
   .minimal-faq .card .card-block {
     padding: 15px 0px; }
-
 /*******************
 Pricing Page
 ******************/
@@ -5372,7 +5365,7 @@ Main sidebar
   top: 0px;
   z-index: 20;
   padding-top: 70px;
-  background: #fff;
+  background: #0079d4;
   -webkit-box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
   box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08); }
 
@@ -5476,7 +5469,7 @@ sidebar footer
   -o-transition: 0.2s ease-out;
   transition: 0.2s ease-out;
   width: 240px;
-  background: #fff;
+  background: #0079d4;
   border-top: 1px solid rgba(120, 130, 140, 0.13); }
   .sidebar-footer a {
     padding: 15px;
@@ -5492,7 +5485,7 @@ sidebar navigation
   display: block; }
 
 .sidebar-nav {
-  background: #fff;
+  background: #0079d4;
   padding: 15px; }
   .sidebar-nav > ul {
     padding: 0px 0px 60px; }
@@ -5751,7 +5744,6 @@ File: scss
 .analytics-info li span {
   font-size: 24px;
   vertical-align: middle; }
-
 /*******************
 /*States row*/
 /*******************/
@@ -6359,7 +6351,6 @@ File: scss
     padding: 15px 10px; }
     .contact-box .contact-widget > a .user-img {
       margin-bottom: 0px !important; }
-
 /*
 Template Name: Material Pro Admin
 Author: Themedesigner
@@ -7004,7 +6995,6 @@ File: scss
 [type="radio"].with-gap:disabled:checked + label:after {
   border: none;
   background-color: rgba(0, 0, 0, 0.26); }
-
 /* Disabled style */
 [type="radio"]:disabled:not(:checked) + label:before,
 [type="radio"]:disabled:checked + label:before {
@@ -7652,7 +7642,6 @@ input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
   border-color: #009688;
   -webkit-animation: ripple 0.2s linear forwards;
   animation: ripple 0.2s linear forwards; }
-
 [type="radio"].radio-col-green:checked + label:after {
   background-color: #26c6da;
   border-color: #26c6da;
