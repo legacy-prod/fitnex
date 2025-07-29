@@ -8,7 +8,7 @@
                     <i class="fa fa-laptop"></i> <span>Dashboard</span>
                 </a>
             </li>
-            @can('role-list')
+            {{-- @can('role-list')
                 <li class="treeview">
                     <a href="{{ route('role.index') }}" class="{{ request()->is('role') || request()->is('role/create') || request()->is('role/*/edit') ? 'active' : '' }}">
                         <i class="fa fa-user-plus"></i> <span>Roles</span>
@@ -21,7 +21,7 @@
                         <i class="fa fa-lock"></i> <span>Permissions</span>
                     </a>
                 </li>
-            @endcan
+            @endcan --}}
 
             <li class="treeview {{ request()->is('page') || request()->is('page/*') || request()->is('page_setting/*') || request()->is('package') || request()->is('package/create') || request()->is('package/*/edit') || request()->is('event') || request()->is('event/create') || request()->is('event/*/edit') || request()->is('event/*') ? 'active' : '' }}"
                 style="height: auto;">

@@ -55,7 +55,6 @@ class WebController extends Controller
 
         if (!empty($user) && $user->status == 1 && $user->hasRole($request->user_type)) {
             $credentials = $request->only('email', 'password');
-
             if (Auth::attempt($credentials)) {
                 return redirect()->route('dashboard');
             }
