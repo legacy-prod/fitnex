@@ -217,7 +217,7 @@
                     {!! $home_page_data['home_about_description'] !!}
                 </div>
                 <div class="flex justify-center md:justify-start">
-                    <a href="#" class="btn primary-btn">Leann More</a>
+                    <a href="{{ route('about-us') }}" class="btn primary-btn">Leann More</a>
                 </div>
             </div>
             <div
@@ -287,10 +287,10 @@
                 </div>
                 @endforeach
                 <div class="col-span-1 md:col-span-4" data-aos="fade-up"
-                            data-aos-easing="linear"
-                            data-aos-duration="1500">
-                            <a href="{{route('trainers')}}" class="btn primary-btn border border-transparent">View All <span class="ps-[10px]"><i class="fa-solid fa-arrow-right"></i></span></a>
-                        </div>
+                    data-aos-easing="linear"
+                    data-aos-duration="1500">
+                    <a href="{{route('trainers')}}" class="btn primary-btn border border-transparent">View All <span class="ps-[10px]"><i class="fa-solid fa-arrow-right"></i></span></a>
+                </div>
             </div>
         </div>
     </div>

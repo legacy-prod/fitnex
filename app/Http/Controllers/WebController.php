@@ -44,7 +44,7 @@ class WebController extends Controller
         $cities = State::where('status', 1)->get(); 
         $projects = Project::where('status', 1)->get();
         $homesliders = HomeSlider::where('status',  1)->get();
-        $trainers = Trainer::where('status', 1)->get();
+        $trainers = Trainer::where('status', 1)->take(4)->get();
         return view('website.index', compact('abouts', 'categories', 'projects', 'page_title', 'homesliders', 'testimonials', 'cities', 'states', 'trainers'));
     }
 
