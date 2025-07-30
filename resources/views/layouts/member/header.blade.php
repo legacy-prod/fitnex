@@ -126,22 +126,7 @@
 
     </nav>
 </header>
-<!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- Custom Script -->
-<script>
-    $(document).ready(function() {
-        // Handle the sidebar toggle functionality
-        $('.sidebar-toggle').on('click', function(e) {
-            e.preventDefault();
-            // Toggle the sidebar collapse class on the body
-            $('body').toggleClass('sidebar-collapse');
-            // Optionally, toggle the logo visibility
-            $('#header-logo').toggleClass('hide-logo');
-        });
-    });
-</script>
-
 <!-- CSS for hiding the logo -->
 <style>
     .hide-logo {
@@ -174,3 +159,15 @@
         display: none;
     }
 </style> 
+<script>
+    $(document).ready(function() {
+        // Handle the sidebar toggle functionality
+        $('.sidebar-toggle').on('click', function(e) {
+            e.preventDefault();
+            // Toggle the sidebar collapse class on the body
+            $('body').toggleClass('sidebar-collapse');
+            // Optionally, toggle the logo visibility
+            $('#header-logo').toggleClass('hide-logo');
+        });
+    });
+</script>

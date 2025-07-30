@@ -1,12 +1,10 @@
 @php
     if (Auth::user()->hasRole('Admin')) {
         $layout = 'layouts.admin.app';
-    } elseif (Auth::user()->hasRole('EPC Developer')) {
-        $layout = 'layouts.epc-developer.app';
-    } elseif (Auth::user()->hasRole('Contractor')) {
-        $layout = 'layouts.contractor.app';
-    } else {
+    } else if (Auth::user()->hasRole('Member')) {
         $layout = 'layouts.member.app';
+    } else {
+        $layout = 'layouts.app';
     }
 @endphp
 
@@ -43,7 +41,7 @@
 
 				<div class="box box-info">
 					<div class="box-body">
-						<div class="form-group">
+						{{-- <div class="form-group">
 							<label for="" class="col-sm-2 control-label">Profile Image</label>
 							<div class="col-sm-6" style="padding-top:5px">
 								<input type="file" class="form-control" accept="image*" name="image" id="image">
@@ -51,7 +49,22 @@
 							<div class="col-sm-4">
 								<img style="width: 80px " id="banner_preview" src="{{asset('/admin/assets/images/UserImage') }}/{{  $user->image }}" alt="">
 							</div>
-						</div>
+						</div> --}}
+						<div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Profile Image</label>
+                            <div class="col-sm-6" style="padding-top:5px">
+                                <input type="file" class="form-control" accept="image*" name="image" id="image" >
+                            </div>
+                            @if(!empty($user->image))
+                                <div class="col-sm-4">
+                                    <img style="width: 80px" src="{{asset('/admin/assets/images/UserImage') }}/{{  $user->image }}" alt="">
+                                </div>
+                            @else
+                                <div class="col-sm-4" >
+                                    <img style="width: 80px" id="banner_preview"  src="{{asset('/admin/assets/images/default.jpg') }}"  alt="Image Not Found ">
+                                </div>
+                            @endif
+                        </div>
 						<div class="form-group">
 							<label for="" class="col-sm-2 control-label">First Name<span style="color: red">*</span></label>
 							<div class="col-sm-9">
@@ -244,7 +257,7 @@
 @endsection
 @push('js')
 <script>
-	$(function() {
+	$(document).ready(function() {
 		$('.password-group').find('.password-box').each(function(index, input) {
 			var $input = $(input);
 			$input.parent().find('.password-visibility').click(function() {
@@ -270,74 +283,8 @@
 		});
 	});
 </script>
-<script>
-	/* City on load call */
+<script> 
 	$(document).ready(function() {
-		var city_id = $('#city_id').val();
-
-		$.ajax({
-			url: "{{ route('get_states') }}",
-			data: {
-				'city_id': city_id
-			},
-			type: 'GET',
-			success: function(response) {
-				var html = '';
-				$.each(response, function(item, val) {
-					html += '<option value="' + val.id + '">' + val.state + '</option>';
-				});
-				$('#state_id').html(html);
-
-			}
-		});
-
-	});
-	/* Cite on Chnage call */
-	$(document).on('change', '#city_id', function() {
-		var city_id = $(this).val();
-		$.ajax({
-			url: "{{ route('get_states') }}",
-			data: {
-				'city_id': city_id
-			},
-			type: 'GET',
-			success: function(response) {
-				var html = '';
-				$.each(response, function(item, val) {
-					html += '<option value="' + val.id + '">' + val.state + '</option>';
-				});
-				$('#state_id').html(html);
-
-			}
-		});
-	});
-
-
-
-
-
-	$(document).ready(function() {
-		if ($(".texteditor").length > 0) {
-			tinymce.init({
-				selector: "textarea.texteditor",
-				theme: "modern",
-				height: 150,
-				plugins: [
-					"advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
-					"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-					"save table contextmenu directionality emoticons template paste textcolor"
-				],
-				toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
-
-			});
-		}
-
-		$("#regform").validate({
-			rules: {
-				name: "required", 
-			}
-		});
-
 		image.onchange = evt => {
 			const [file] = image.files
 			if (file) {
